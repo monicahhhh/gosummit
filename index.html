@@ -74,10 +74,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .hero-top{display:flex;justify-content:space-between;align-items:flex-end;color:var(--fg-soft);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
 .hero-justgo{
- position:absolute;top:170px;right:28px;z-index:2;
- width:min(220px,28vw);
+ position:absolute;top:168px;right:var(--gutter);z-index:0;
+ width:min(320px,34vw);
+ opacity:.18;
+ pointer-events:none;
 }
-.hero-justgo img{width:100%;height:auto;display:block;opacity:.95}
+.hero-justgo img{
+  width:100%;height:auto;display:block;
+  filter:drop-shadow(0 12px 48px rgba(0,0,0,.45));
+}
 
 /* ——— photo wall (between nav and city ticker) ——— */
 .photo-wall{
@@ -90,6 +95,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
 }
+.photo-wall,.marquee,.hero-sub{position:relative;z-index:1}
 .photo-track{
   display:flex;gap:18px;width:max-content;
   animation:photoScroll 78s linear infinite;
@@ -336,7 +342,7 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
   .section{padding:90px var(--gutter)}
   .hero{padding:110px var(--gutter) 60px}
   .photo-item{width:250px;height:152px}
- .hero-justgo{top:148px;right:20px;width:min(160px,36vw)}
+  .hero-justgo{top:148px;right:var(--gutter);width:min(190px,40vw);opacity:.22}
   .tour-head{flex-direction:column;align-items:flex-start;gap:20px}
   .tour-head .meta{text-align:left}
   .f-grid{grid-template-columns:1fr}
