@@ -169,7 +169,7 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
       </div>
       <div class="submit-row">
         <button class="btn" type="submit">Submit Application</button>
-        <span class="hint" id="submit-hint">Your application will be sent to the organizer team.</span>
+        <span class="hint" id="submit-hint">Attendance is free, but all applications require organizer approval. You will receive an email notification once approved.</span>
       </div>
     </form>
   </section>
@@ -237,7 +237,7 @@ form.addEventListener("submit", (e) => {
   const fd = new FormData(form);
   const city = fd.get("city");
   const name = fd.get("name");
-  submitHint.textContent = "Submitted for " + city + ". Thank you, " + name + ".";
+  submitHint.textContent = "Your application for " + city + " has been submitted. Attendance is free, but organizer approval is required. You will receive an email notification once approved.";
   form.reset();
   cityInput.value = city;
 });
