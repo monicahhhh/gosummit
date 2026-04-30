@@ -360,10 +360,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .cta::before{content:"";position:absolute;inset:auto 0 -40% 0;height:80%;background:radial-gradient(50% 60% at 50% 100%, rgba(232,116,12,.28), transparent 70%);filter:blur(20px);pointer-events:none}
 .cta .kicker-big{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,88px);letter-spacing:-.025em;line-height:.98;color:var(--fg-soft);margin-bottom:28px;position:relative;font-style:italic}
 .cta .kicker-big em{font-style:italic;color:var(--fg);font-weight:400}
-.cta .slogan{position:relative;display:inline-block;max-width:min(720px,82vw);isolation:isolate}
-.cta .slogan img{
-  width:100%;height:auto;display:block;
-  mix-blend-mode:screen;
+.cta .slogan{
+  position:relative;display:inline-block;
+  width:min(720px,82vw);aspect-ratio:1024/391;
+  isolation:isolate;
+}
+.cta .slogan::before{
+  content:"";
+  position:absolute;inset:0;
+  background:var(--fg);
+  -webkit-mask-image:url("assets/just-go-logo-transparent.png");
+  -webkit-mask-repeat:no-repeat;
+  -webkit-mask-size:contain;
+  -webkit-mask-position:center;
+  mask-image:url("assets/just-go-logo-transparent.png");
+  mask-repeat:no-repeat;
+  mask-size:contain;
+  mask-position:center;
   filter:drop-shadow(0 20px 60px rgba(232,116,12,.28));
 }
 .cta p{color:var(--fg-soft);font-size:18px;max-width:520px;margin:28px auto 48px;position:relative;line-height:1.6}
@@ -628,7 +641,7 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
 <!-- CTA -->
 <section id="apply" class="cta">
   <div class="kicker-big reveal">Ready?</div>
-  <h2 class="slogan reveal"><img src="assets/just-go-logo-transparent.png" alt="Just GO — GO Summit" /></h2>
+  <h2 class="slogan reveal" aria-label="Just GO — GO Summit"></h2>
   <p class="reveal">Applications open for speakers, delegates and founding partners of the 2026 tour. Rolling review.</p>
   <div class="cta-row reveal">
     <a class="btn primary" href="#">Apply to Attend <span>→</span></a>
