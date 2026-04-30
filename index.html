@@ -360,8 +360,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .cta::before{content:"";position:absolute;inset:auto 0 -40% 0;height:80%;background:radial-gradient(50% 60% at 50% 100%, rgba(232,116,12,.28), transparent 70%);filter:blur(20px);pointer-events:none}
 .cta .kicker-big{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,88px);letter-spacing:-.025em;line-height:.98;color:var(--fg-soft);margin-bottom:28px;position:relative;font-style:italic}
 .cta .kicker-big em{font-style:italic;color:var(--fg);font-weight:400}
-.cta .slogan{position:relative;display:inline-block;max-width:min(720px,82vw)}
-.cta .slogan img{width:100%;height:auto;display:block;filter:drop-shadow(0 20px 60px rgba(232,116,12,.28))}
+.cta .slogan{position:relative;display:inline-block;max-width:min(720px,82vw);isolation:isolate}
+.cta .slogan img{
+  width:100%;height:auto;display:block;
+  mix-blend-mode:screen;
+  filter:drop-shadow(0 20px 60px rgba(232,116,12,.28));
+}
 .cta p{color:var(--fg-soft);font-size:18px;max-width:520px;margin:28px auto 48px;position:relative;line-height:1.6}
 .cta-row{display:inline-flex;gap:14px;position:relative;flex-wrap:wrap;justify-content:center}
 .btn{
