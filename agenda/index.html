@@ -100,9 +100,25 @@ main{padding:130px var(--gutter) 90px}
 .session ul{margin-top:14px;padding-left:22px;display:grid;gap:8px}
 .session li{font-size:18px;line-height:1.6}
 
+/* ——— footer ——— */
+footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:var(--fg-dim);font-size:13px;margin-top:70px}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;width:80vw;margin:0 auto 50px;align-items:start}
+.f-grid > div{display:flex;flex-direction:column;align-items:flex-start}
+.f-grid h4{color:var(--fg);font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 18px}
+.f-grid ul{list-style:none;display:grid;gap:10px}
+.f-grid a:hover{color:var(--fg)}
+.f-grid .sub{color:var(--fg-soft);max-width:360px;line-height:1.6;margin-top:10px}
+.f-grid .org-ref{margin-top:14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);font-weight:500}
+.sub-form{display:flex;gap:8px;margin-top:22px;max-width:360px}
+.sub-form input{flex:1;background:transparent;border:1px solid var(--line);color:var(--fg);padding:12px 14px;border-radius:999px;font:inherit;font-size:13px;outline:none;transition:border-color .2s}
+.sub-form input:focus{border-color:var(--fg-soft)}
+.sub-form button{padding:12px 18px;background:var(--fg);color:#000;border-radius:999px;font-weight:500;font-size:13px;border:0}
+.f-bottom{width:80vw;margin:0 auto;display:flex;justify-content:space-between;padding-top:22px;border-top:1px solid var(--line)}
+
 @media (max-width:1024px){
   .nav ul{display:none}
   .wordmark .sep{display:none}
+  .f-grid{grid-template-columns:1fr 1fr;gap:30px}
 }
 @media (max-width:600px){
   :root{--gutter:6vw}
@@ -112,6 +128,7 @@ main{padding:130px var(--gutter) 90px}
   .city-btn .m{font-size:24px}
   .city-btn .c{font-size:34px}
   .session li{font-size:16px}
+  .f-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -122,9 +139,9 @@ main{padding:130px var(--gutter) 90px}
     <ul>
       <li><a href="/#about">ABOUT</a></li>
       <li><a class="active" href="/agenda">AGENDA</a></li>
-      <li><a href="/speakers" onclick="window.location.href='/speakers';return false;">SPEAKERS</a></li>
+      <li><a href="/speakers">SPEAKERS</a></li>
       <li><a href="/#partners">PARTNERS</a></li>
-      <li><a href="/#apply">ATTEND</a></li>
+      <li><a href="/attend">ATTEND</a></li>
       <li><a href="/contact">CONTACT</a></li>
     </ul>
   </div>
@@ -159,6 +176,32 @@ main{padding:130px var(--gutter) 90px}
     <div id="agenda-content"></div>
   </section>
 </main>
+
+<footer>
+  <div class="f-grid">
+    <div>
+      <h4>GO SUMMIT</h4>
+      <p class="sub">Monthly, in a different city. Build the next global category, with the people actually doing it.</p>
+      <p class="org-ref">Organized by AGI Villa · 2026</p>
+      <form class="sub-form" onsubmit="event.preventDefault();this.querySelector('input').value='Subscribed — see you in the next city.'">
+        <input type="email" placeholder="you@founder.com" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div>
+      <h4>ABOUT</h4>
+      <ul><li><a href="/#about">ABOUT</a></li><li><a href="/agenda">AGENDA</a></li><li><a href="/speakers">SPEAKERS</a></li><li><a href="/#partners">PARTNERS</a></li></ul>
+    </div>
+    <div>
+      <h4>CONNECT</h4>
+      <ul><li><a href="/attend">ATTEND</a></li><li><a href="/contact">CONTACT</a></li></ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>© 2026 GO SUMMIT. All rights reserved.</span>
+    <span>Designed in Shanghai · Shipped worldwide.</span>
+  </div>
+</footer>
 
 <script>
 const agendaData = {
