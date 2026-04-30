@@ -74,6 +74,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-top{display:flex;justify-content:space-between;align-items:flex-end;color:var(--fg-soft);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:500}
 .hero-logo{margin-top:auto;max-width:min(980px,88vw)}
 .hero-logo img{width:100%;height:auto;display:block;filter:drop-shadow(0 30px 80px rgba(232,116,12,.18))}
+.hero-justgo{
+ position:absolute;top:170px;right:28px;z-index:2;
+ width:min(220px,28vw);
+}
+.hero-justgo img{width:100%;height:auto;display:block;opacity:.95}
 
 /* ——— hero marquee (auto-scrolling tour ticker under logo) ——— */
 .marquee{
@@ -295,6 +300,7 @@ footer{border-top:1px solid var(--line);padding:60px 28px 40px;color:var(--fg-di
 @media (max-width:600px){
   .section{padding:90px 20px}
   .hero{padding:110px 20px 60px}
+ .hero-justgo{top:148px;right:20px;width:min(160px,36vw)}
   .tour-head{flex-direction:column;align-items:flex-start;gap:20px}
   .tour-head .meta{text-align:left}
   .f-grid{grid-template-columns:1fr}
@@ -333,6 +339,8 @@ footer{border-top:1px solid var(--line);padding:60px 28px 40px;color:var(--fg-di
     <span>GO Summit · 2026 World Tour</span>
     <span>Shanghai → Dubai · 9 Stops</span>
   </div>
+
+  <div class="hero-justgo reveal"><img src="assets/just-go-logo.png" alt="Just GO" /></div>
 
   <h1 class="hero-logo reveal"><img src="assets/go-summit-logo.png" alt="GO Summit — Just GO." /></h1>
 
