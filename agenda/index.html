@@ -34,7 +34,7 @@ a{color:inherit;text-decoration:none}
   display:flex;align-items:center;justify-content:space-between;
 }
 .wordmark{display:inline-flex;align-items:center;gap:10px}
-.wordmark-logo{display:block;width:210px;height:68px;background:var(--accent);-webkit-mask-image:url("../assets/go-summit-logo.png");-webkit-mask-repeat:no-repeat;-webkit-mask-size:contain;-webkit-mask-position:left center;-webkit-mask-mode:luminance;mask-image:url("../assets/go-summit-logo.png");mask-repeat:no-repeat;mask-size:contain;mask-position:left center;mask-mode:luminance;filter:drop-shadow(0 0 14px rgba(232,116,12,.26));}
+.wordmark img{height:68px;width:auto;display:block}
 .wordmark .sep{
   display:inline-block;margin-left:10px;padding-left:12px;border-left:1px solid var(--line);
   font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-soft);font-weight:500;
@@ -118,14 +118,14 @@ main{padding:130px var(--gutter) 90px}
 <body>
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="wordmark" aria-label="GO Summit"><span class="wordmark-logo" aria-hidden="true"></span><span class="sep">WORLD TOUR 2026-2027</span></a>
+    <a href="/" class="wordmark"><img src="../assets/go-summit-logo.png" alt="GO Summit" /><span class="sep">WORLD TOUR 2026-2027</span></a>
     <ul>
       <li><a href="/#about">ABOUT</a></li>
       <li><a class="active" href="/agenda">AGENDA</a></li>
       <li><a href="/speakers" onclick="window.location.href='/speakers';return false;">SPEAKERS</a></li>
       <li><a href="/#partners">PARTNERS</a></li>
-      <li><a href="/attend">ATTEND</a></li>
-      <li><a href="/#contact">CONTACT</a></li>
+      <li><a href="/#apply">ATTEND</a></li>
+      <li><a href="/contact">CONTACT</a></li>
     </ul>
   </div>
 </nav>
