@@ -134,15 +134,15 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
 
   <section class="city-strip" aria-label="Attend city selector">
     <div class="city-track">
-      <button class="city-btn active" data-city="Shenzhen"><span class="m">May</span><span class="c">Shenzhen</span></button>
-      <button class="city-btn" data-city="Singapore (Jun)"><span class="m">Jun</span><span class="c">Singapore</span></button>
-      <button class="city-btn" data-city="Shanghai (Jul)"><span class="m">Jul</span><span class="c">Shanghai</span></button>
-      <button class="city-btn" data-city="Hongkong"><span class="m">Aug</span><span class="c">Hongkong</span></button>
-      <button class="city-btn" data-city="Hangzhou"><span class="m">Sep</span><span class="c">Hangzhou</span></button>
-      <button class="city-btn" data-city="Singapore (Oct)"><span class="m">Oct</span><span class="c">Singapore</span></button>
-      <button class="city-btn" data-city="Shenzhen (Nov)"><span class="m">Nov</span><span class="c">Shenzhen</span></button>
-      <button class="city-btn" data-city="Dubai"><span class="m">Dec</span><span class="c">Dubai</span></button>
-      <button class="city-btn" data-city="Shanghai (Apr)"><span class="m">Apr</span><span class="c">Shanghai</span></button>
+      <button class="city-btn active" data-city="Shenzhen-May"><span class="m">May</span><span class="c">Shenzhen</span></button>
+      <button class="city-btn" data-city="Singapore-Jun"><span class="m">Jun</span><span class="c">Singapore</span></button>
+      <button class="city-btn" data-city="Shanghai-Jul"><span class="m">Jul</span><span class="c">Shanghai</span></button>
+      <button class="city-btn" data-city="Hongkong-Aug"><span class="m">Aug</span><span class="c">Hongkong</span></button>
+      <button class="city-btn" data-city="Hangzhou-Sep"><span class="m">Sep</span><span class="c">Hangzhou</span></button>
+      <button class="city-btn" data-city="Singapore-Oct"><span class="m">Oct</span><span class="c">Singapore</span></button>
+      <button class="city-btn" data-city="Shenzhen-Nov"><span class="m">Nov</span><span class="c">Shenzhen</span></button>
+      <button class="city-btn" data-city="Dubai-Dec"><span class="m">Dec</span><span class="c">Dubai</span></button>
+      <button class="city-btn" data-city="Shanghai-Apr"><span class="m">Apr</span><span class="c">Shanghai</span></button>
     </div>
   </section>
 
@@ -153,7 +153,7 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
     </div>
 
     <form id="attend-form">
-      <input type="hidden" name="city" id="city-input" value="Shenzhen" />
+      <input type="hidden" name="city" id="city-input" value="Shenzhen (May)" />
       <div class="field">
         <label for="name">Name</label>
         <input id="name" name="name" type="text" required />
@@ -223,15 +223,15 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
 
 <script>
 const cityMeta = {
-  "Shenzhen": "May · Open for Application",
-  "Singapore (Jun)": "June · Open for Application",
-  "Shanghai (Jul)": "July · Open for Application",
-  "Hongkong": "August · Open for Application",
-  "Hangzhou": "September · Open for Application",
-  "Singapore (Oct)": "October · Open for Application",
-  "Shenzhen (Nov)": "November · Open for Application",
-  "Dubai": "December · Open for Application",
-  "Shanghai (Apr)": "April · Open for Application"
+  "Shenzhen-May": { label: "Shenzhen", monthLabel: "May", submitValue: "Shenzhen (May)" },
+  "Singapore-Jun": { label: "Singapore", monthLabel: "June", submitValue: "Singapore (June)" },
+  "Shanghai-Jul": { label: "Shanghai", monthLabel: "July", submitValue: "Shanghai (July)" },
+  "Hongkong-Aug": { label: "Hongkong", monthLabel: "August", submitValue: "Hongkong (August)" },
+  "Hangzhou-Sep": { label: "Hangzhou", monthLabel: "September", submitValue: "Hangzhou (September)" },
+  "Singapore-Oct": { label: "Singapore", monthLabel: "October", submitValue: "Singapore (October)" },
+  "Shenzhen-Nov": { label: "Shenzhen", monthLabel: "November", submitValue: "Shenzhen (November)" },
+  "Dubai-Dec": { label: "Dubai", monthLabel: "December", submitValue: "Dubai (December)" },
+  "Shanghai-Apr": { label: "Shanghai", monthLabel: "April", submitValue: "Shanghai (April)" }
 };
 
 const cityButtons = document.querySelectorAll(".city-btn");
@@ -271,10 +271,12 @@ cityButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     cityButtons.forEach(b => b.classList.remove("active"));
     btn.classList.add("active");
-    const city = btn.dataset.city;
-    cityInput.value = city;
-    cityTitle.textContent = city + " Registration";
-    citySub.textContent = cityMeta[city] || "Open for Application";
+    const cityKey = btn.dataset.city;
+    const cityInfo = cityMeta[cityKey];
+    if (!cityInfo) return;
+    cityInput.value = cityInfo.submitValue;
+    cityTitle.textContent = cityInfo.label + " Registration";
+    citySub.textContent = cityInfo.monthLabel + " · Open for Application";
   });
 });
 
@@ -282,6 +284,7 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const fd = new FormData(form);
   const city = String(fd.get("city") || "");
+  const cityLabel = city.replace(/\s*\([^)]*\)\s*$/, "");
   const payload = {
     city,
     name: String(fd.get("name") || "").trim(),
@@ -311,7 +314,7 @@ form.addEventListener("submit", async (e) => {
       throw new Error(data.message || "Submission failed.");
     }
 
-    const successMessage = "Your application for " + city + " has been submitted. Attendance is free, but organizer approval is required. You will receive an email notification once approved.";
+    const successMessage = "Your application for " + cityLabel + " has been submitted. Attendance is free, but organizer approval is required. You will receive an email notification once approved.";
     showSuccessModal(successMessage);
     setHint(successMessage, "success");
     form.reset();
