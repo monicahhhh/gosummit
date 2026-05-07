@@ -347,10 +347,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .org-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);min-width:140px;font-weight:500}
 .org-logo{flex:1;display:flex;justify-content:flex-start}
 .org-logo img{height:56px;width:auto;filter:none}
-.p-wall{display:grid;grid-template-columns:repeat(6,1fr);gap:0;border-top:1px solid var(--line)}
-.p-wall div{height:120px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;color:var(--fg-dim);font-size:14px;letter-spacing:.02em;transition:color .3s, background .3s}
-.p-wall div:nth-child(6n){border-right:0}
-.p-wall div:hover{color:var(--fg);background:rgba(255,255,255,.02)}
+.p-wall{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line)}
+.p-card{height:120px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:12px;background:transparent;transition:background .3s ease}
+.p-card:nth-child(5n){border-right:0}
+.p-card:hover{background:rgba(255,255,255,.02)}
+.p-card img{max-width:92%;max-height:72px;width:auto;height:auto;display:block;object-fit:contain;filter:none}
 
 /* ——— cta ——— */
 .cta{border-top:1px solid var(--line);padding:180px var(--gutter);text-align:center;position:relative;overflow:hidden}
@@ -417,8 +418,8 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
   .nums-grid{grid-template-columns:repeat(2,1fr)}
   .nums-grid > div:nth-child(2n){border-right:0}
   .p-wall{grid-template-columns:repeat(3,1fr)}
-  .p-wall div:nth-child(6n){border-right:1px solid var(--line)}
-  .p-wall div:nth-child(3n){border-right:0}
+  .p-card:nth-child(5n){border-right:1px solid var(--line)}
+  .p-card:nth-child(3n){border-right:0}
   .f-grid{grid-template-columns:1fr 1fr;gap:30px}
   .hero-sub{grid-template-columns:1fr}
   .hero-meta{grid-template-columns:repeat(2,minmax(120px,1fr));justify-content:flex-start}
@@ -626,10 +627,16 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
     </div>
 
     <div class="p-wall">
-      <div>Partner 01</div><div>Partner 02</div><div>Partner 03</div>
-      <div>Partner 04</div><div>Partner 05</div><div>Partner 06</div>
-      <div>Partner 07</div><div>Partner 08</div><div>Partner 09</div>
-      <div>Partner 10</div><div>Partner 11</div><div>Partner 12</div>
+      <div class="p-card"><img src="assets/partners/datawhale.png" alt="Datawhale" /></div>
+      <div class="p-card"><img src="assets/partners/way2agi.png" alt="Way2AGI" /></div>
+      <div class="p-card"><img src="assets/partners/agent-universe.png" alt="特工宇宙" /></div>
+      <div class="p-card"><img src="assets/partners/guancha.png" alt="观猹" /></div>
+      <div class="p-card"><img src="assets/partners/ncc.png" alt="NCC" /></div>
+      <div class="p-card"><img src="assets/partners/s-chuang.png" alt="S 创" /></div>
+      <div class="p-card"><img src="assets/partners/wave.png" alt="WAVE" /></div>
+      <div class="p-card"><img src="assets/partners/guixingren.png" alt="硅星人" /></div>
+      <div class="p-card"><img src="assets/partners/founder-park.png" alt="Founder Park" /></div>
+      <div class="p-card"><img src="assets/partners/kunpenghui.png" alt="鲲鹏会" /></div>
     </div>
   </div>
 </section>
