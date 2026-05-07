@@ -64,6 +64,8 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .btn{padding:12px 20px;border-radius:999px;border:1px solid var(--fg);background:var(--fg);color:#000;font-weight:600;cursor:pointer}
 .btn[disabled]{opacity:.6;cursor:not-allowed}
 .hint{color:var(--fg-soft);font-size:14px}
+.hint.success{color:#5be37a}
+.hint.error{color:#ff6f6f}
 
 /* ——— footer ——— */
 footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:var(--fg-dim);font-size:13px;margin-top:70px}
@@ -216,6 +218,12 @@ const submitHint = document.getElementById("submit-hint");
 const submitButton = form.querySelector("button[type='submit']");
 const API_BASE = window.GOSUMMIT_API_BASE || "https://gosummit-production.up.railway.app";
 
+function setHint(text, type = "") {
+  submitHint.textContent = text;
+  submitHint.classList.remove("success", "error");
+  if (type) submitHint.classList.add(type);
+}
+
 cityButtons.forEach(btn => {
   btn.addEventListener("click", () => {
     cityButtons.forEach(b => b.classList.remove("active"));
@@ -241,13 +249,13 @@ form.addEventListener("submit", async (e) => {
   };
 
   if (API_BASE.includes("YOUR-RAILWAY-SERVICE")) {
-    submitHint.textContent = "Backend is not configured yet. Set window.GOSUMMIT_API_BASE to your Railway API URL.";
+    setHint("Backend is not configured yet. Set window.GOSUMMIT_API_BASE to your Railway API URL.", "error");
     return;
   }
 
   submitButton.disabled = true;
   submitButton.textContent = "Submitting...";
-  submitHint.textContent = "Submitting your registration...";
+  setHint("Submitting your registration...");
 
   try {
     const resp = await fetch(API_BASE + "/api/register", {
@@ -260,11 +268,11 @@ form.addEventListener("submit", async (e) => {
       throw new Error(data.message || "Submission failed.");
     }
 
-    submitHint.textContent = "Your application for " + city + " has been submitted. Attendance is free, but organizer approval is required. You will receive an email notification once approved.";
+    setHint("Submitted successfully (" + new Date().toLocaleTimeString() + "). Your application for " + city + " has been received.", "success");
     form.reset();
     cityInput.value = city;
   } catch (err) {
-    submitHint.textContent = "Submission failed. Please try again in a minute or contact monica@agivilla.com.";
+    setHint("Submission failed. Please try again in a minute or contact monica@agivilla.com.", "error");
   } finally {
     submitButton.disabled = false;
     submitButton.textContent = "Submit Application";
