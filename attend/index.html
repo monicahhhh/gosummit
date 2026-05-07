@@ -268,7 +268,9 @@ form.addEventListener("submit", async (e) => {
       throw new Error(data.message || "Submission failed.");
     }
 
-    setHint("Submitted successfully (" + new Date().toLocaleTimeString() + "). Your application for " + city + " has been received.", "success");
+    const successMessage = "Your application for " + city + " has been submitted. Attendance is free, but organizer approval is required. You will receive an email notification once approved.";
+    window.alert(successMessage);
+    setHint(successMessage, "success");
     form.reset();
     cityInput.value = city;
   } catch (err) {
