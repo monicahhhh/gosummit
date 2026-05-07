@@ -88,10 +88,6 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
 .f-grid a:hover{color:var(--fg)}
 .f-grid .sub{color:var(--fg-soft);max-width:360px;line-height:1.6;margin-top:10px}
 .f-grid .org-ref{margin-top:14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);font-weight:500}
-.sub-form{display:flex;gap:8px;margin-top:22px;max-width:360px}
-.sub-form input{flex:1;background:transparent;border:1px solid var(--line);color:var(--fg);padding:12px 14px;border-radius:999px;font:inherit;font-size:13px;outline:none;transition:border-color .2s}
-.sub-form input:focus{border-color:var(--fg-soft)}
-.sub-form button{padding:12px 18px;background:var(--fg);color:#000;border-radius:999px;font-weight:500;font-size:13px;border:0}
 .f-bottom{width:80vw;margin:0 auto;display:flex;justify-content:space-between;padding-top:22px;border-top:1px solid var(--line)}
 
 @media (max-width:1024px){
@@ -154,10 +150,6 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
       <h4>GO SUMMIT</h4>
       <p class="sub">Monthly, in a different city. Build the next global category, with the people actually doing it.</p>
       <p class="org-ref">Organized by AGI Villa · 2026</p>
-      <form class="sub-form" onsubmit="event.preventDefault();this.querySelector('input').value='Subscribed — see you in the next city.'">
-        <input type="email" placeholder="you@founder.com" required />
-        <button type="submit">Subscribe</button>
-      </form>
     </div>
     <div>
       <h4>ABOUT</h4>
