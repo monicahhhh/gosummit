@@ -62,6 +62,7 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .field.full{grid-column:1 / -1}
 .submit-row{grid-column:1 / -1;display:flex;align-items:center;gap:14px;margin-top:4px}
 .btn{padding:12px 20px;border-radius:999px;border:1px solid var(--fg);background:var(--fg);color:#000;font-weight:600;cursor:pointer}
+.btn[disabled]{opacity:.6;cursor:not-allowed}
 .hint{color:var(--fg-soft);font-size:14px}
 
 /* ——— footer ——— */
@@ -212,6 +213,8 @@ const citySub = document.getElementById("city-sub");
 const cityInput = document.getElementById("city-input");
 const form = document.getElementById("attend-form");
 const submitHint = document.getElementById("submit-hint");
+const submitButton = form.querySelector("button[type='submit']");
+const API_BASE = window.GOSUMMIT_API_BASE || "https://gosummit-production.up.railway.app";
 
 cityButtons.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -224,14 +227,48 @@ cityButtons.forEach(btn => {
   });
 });
 
-form.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const fd = new FormData(form);
-  const city = fd.get("city");
-  const name = fd.get("name");
-  submitHint.textContent = "Your application for " + city + " has been submitted. Attendance is free, but organizer approval is required. You will receive an email notification once approved.";
-  form.reset();
-  cityInput.value = city;
+  const city = String(fd.get("city") || "");
+  const payload = {
+    city,
+    name: String(fd.get("name") || "").trim(),
+    title: String(fd.get("title") || "").trim(),
+    company: String(fd.get("company") || "").trim(),
+    email: String(fd.get("email") || "").trim(),
+    companyType: String(fd.get("companyType") || "").trim()
+  };
+
+  if (API_BASE.includes("YOUR-RAILWAY-SERVICE")) {
+    submitHint.textContent = "Backend is not configured yet. Set window.GOSUMMIT_API_BASE to your Railway API URL.";
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Submitting...";
+  submitHint.textContent = "Submitting your registration...";
+
+  try {
+    const resp = await fetch(API_BASE + "/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const data = await resp.json();
+    if (!resp.ok || !data.ok) {
+      throw new Error(data.message || "Submission failed.");
+    }
+
+    submitHint.textContent = "Your application for " + city + " has been submitted. Attendance is free, but organizer approval is required. You will receive an email notification once approved.";
+    form.reset();
+    cityInput.value = city;
+  } catch (err) {
+    submitHint.textContent = "Submission failed. Please try again in a minute or contact monica@agivilla.com.";
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "Submit Application";
+  }
 });
 </script>
 </body>
