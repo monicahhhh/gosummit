@@ -66,6 +66,23 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .hint{color:var(--fg-soft);font-size:14px}
 .hint.success{color:#5be37a}
 .hint.error{color:#ff6f6f}
+.success-modal{
+  position:fixed;inset:0;display:none;align-items:center;justify-content:center;
+  background:rgba(0,0,0,.55);z-index:120;
+}
+.success-modal.show{display:flex}
+.success-modal .panel{
+  width:min(720px,92vw);
+  background:#111;border:1px solid var(--line);border-radius:18px;
+  padding:28px 26px 24px;box-shadow:0 18px 60px rgba(0,0,0,.55);
+}
+.success-modal h3{font-size:18px;letter-spacing:.01em;margin-bottom:14px}
+.success-modal p{font-size:18px;line-height:1.45;color:var(--fg);margin-bottom:18px}
+.success-modal .row{display:flex;justify-content:flex-end}
+.success-modal button{
+  padding:10px 22px;border-radius:999px;border:1px solid var(--fg);
+  background:var(--fg);color:#000;font-weight:600;cursor:pointer;
+}
 
 /* ——— footer ——— */
 footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:var(--fg-dim);font-size:13px;margin-top:70px}
@@ -196,6 +213,14 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
   </div>
 </footer>
 
+<div class="success-modal" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title">
+  <div class="panel">
+    <h3 id="success-title">Submission Confirmed</h3>
+    <p id="success-message"></p>
+    <div class="row"><button id="success-ok" type="button">OK</button></div>
+  </div>
+</div>
+
 <script>
 const cityMeta = {
   "Shenzhen": "May · Open for Application",
@@ -217,12 +242,30 @@ const form = document.getElementById("attend-form");
 const submitHint = document.getElementById("submit-hint");
 const submitButton = form.querySelector("button[type='submit']");
 const API_BASE = window.GOSUMMIT_API_BASE || "https://gosummit-production.up.railway.app";
+const successModal = document.getElementById("success-modal");
+const successMessageEl = document.getElementById("success-message");
+const successOkBtn = document.getElementById("success-ok");
 
 function setHint(text, type = "") {
   submitHint.textContent = text;
   submitHint.classList.remove("success", "error");
   if (type) submitHint.classList.add(type);
 }
+
+function showSuccessModal(message) {
+  successMessageEl.textContent = message;
+  successModal.classList.add("show");
+  successOkBtn.focus();
+}
+
+function closeSuccessModal() {
+  successModal.classList.remove("show");
+}
+
+successOkBtn.addEventListener("click", closeSuccessModal);
+successModal.addEventListener("click", (e) => {
+  if (e.target === successModal) closeSuccessModal();
+});
 
 cityButtons.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -269,7 +312,7 @@ form.addEventListener("submit", async (e) => {
     }
 
     const successMessage = "Your application for " + city + " has been submitted. Attendance is free, but organizer approval is required. You will receive an email notification once approved.";
-    window.alert(successMessage);
+    showSuccessModal(successMessage);
     setHint(successMessage, "success");
     form.reset();
     cityInput.value = city;
