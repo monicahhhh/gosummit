@@ -52,6 +52,8 @@ main{padding:130px var(--gutter) 90px}
   border:1px solid var(--line);
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
   padding:24px 24px 22px;
+  display:flex;
+  flex-direction:column;
 }
 .card .tag{
   font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:600;
@@ -62,9 +64,9 @@ main{padding:130px var(--gutter) 90px}
   letter-spacing:-.02em;
 }
 .card p{margin-top:10px;color:var(--fg-soft);font-size:16px}
-.card .action{margin-top:18px;display:inline-flex;padding:10px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px}
+.card .action{margin-top:auto;display:inline-flex;align-self:flex-start;padding:10px 16px;border:1px solid var(--line);border-radius:999px;font-size:14px}
 .card .photo{
-  margin-top:22px;
+  margin-top:18px;
 }
 .card .photo img{
   width:25%;
@@ -133,14 +135,14 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
       <div class="tag">Speaking</div>
       <h2>Monica</h2>
       <p>For speaking invitations and stage participation, please connect with Monica.</p>
-      <a class="action" href="mailto:monica@gosummit.ai?subject=Speaking%20Inquiry%20for%20Monica">monica@gosummit.ai</a>
+      <a class="action" href="mailto:monica@agivilla.com?subject=Speaking%20Inquiry%20for%20Monica">monica@agivilla.com</a>
       <div class="photo"><img class="monica" src="../assets/contact-monica.png" alt="Monica" /></div>
     </article>
     <article class="card">
       <div class="tag">Partner & Sponsor</div>
       <h2>Darren</h2>
       <p>For partnership and sponsor collaboration, please connect with Darren.</p>
-      <a class="action" href="mailto:darren@gosummit.ai?subject=Partner%20%26%20Sponsor%20Inquiry%20for%20Darren">darren@gosummit.ai</a>
+      <a class="action" href="mailto:darren@agivilla.com?subject=Partner%20%26%20Sponsor%20Inquiry%20for%20Darren">darren@agivilla.com</a>
       <div class="photo"><img class="darren" src="../assets/contact-darren.png" alt="Darren" /></div>
     </article>
   </section>
