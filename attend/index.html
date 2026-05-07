@@ -316,7 +316,7 @@ form.addEventListener("submit", async (e) => {
 
     const successMessage = "Your application for " + cityLabel + " has been submitted. Attendance is free, but organizer approval is required. You will receive an email notification once approved.";
     showSuccessModal(successMessage);
-    setHint(successMessage, "success");
+    setHint("");
     form.reset();
     cityInput.value = city;
   } catch (err) {
