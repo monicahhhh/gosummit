@@ -81,9 +81,38 @@ main{padding:130px var(--gutter) 90px}
 .sp h3{font-family:var(--serif);font-size:30px;line-height:1.1;letter-spacing:-.01em}
 .sp .meta{margin-top:5px;color:var(--fg-soft);font-size:14px}
 .sp .meta a{color:var(--accent)}
-.sp ul{margin:12px 0 0 18px;display:grid;gap:6px}
-.sp li{font-size:16px;line-height:1.62;color:#dfdfe4}
-.sp p{margin-top:12px;font-size:16px;line-height:1.7;color:#dfdfe4}
+.sp-body{margin-top:12px}
+.sp-body-inner{font-size:16px;line-height:1.65;color:#dfdfe4}
+.sp-body-inner ul{margin:0 0 0 18px;display:grid;gap:6px}
+.sp-body-inner li{font-size:16px;line-height:1.62;color:#dfdfe4}
+.sp-body-inner p{margin:12px 0 0;font-size:16px;line-height:1.7;color:#dfdfe4}
+.sp-body-inner > :first-child{margin-top:0}
+.sp-body-inner.is-collapsed{
+  max-height:calc(1.65em * 10);
+  overflow:hidden;
+  position:relative;
+}
+.sp-body-inner.is-collapsed::after{
+  content:"";
+  position:absolute;left:0;right:0;bottom:0;height:3.2em;
+  pointer-events:none;
+  background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.88));
+}
+.sp-tab{
+  display:block;width:max-content;min-width:88px;margin:10px auto 0;
+  padding:7px 16px 6px;
+  border:1px solid var(--line);
+  border-bottom-width:2px;border-bottom-color:var(--accent);
+  border-radius:10px 10px 0 0;
+  background:rgba(255,255,255,.04);
+  color:var(--accent);
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  cursor:pointer;font-family:var(--sans);
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.sp-tab:hover{background:rgba(232,116,12,.12);color:#fff;border-color:rgba(232,116,12,.35)}
+.sp-tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sp-tab[hidden]{display:none!important}
 .coming{
   border:1px solid var(--line);padding:30px;
   color:var(--fg-soft);font-size:18px;
@@ -114,7 +143,7 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
   .city-btn .m{font-size:24px}
   .city-btn .c{font-size:34px}
   .sp h3{font-size:26px}
-  .sp li,.sp p{font-size:15px}
+  .sp-body-inner,.sp-body-inner li,.sp-body-inner p{font-size:15px}
   .f-grid{grid-template-columns:1fr}
 }
 </style>
@@ -315,7 +344,33 @@ function speakerCard(sp){
   const meta = sp.meta ? `<div class="meta">${sp.meta}</div>` : "";
   const bullets = sp.bullets ? `<ul>${sp.bullets.map(x=>`<li>${x}</li>`).join("")}</ul>` : "";
   const paragraphs = sp.paragraphs ? sp.paragraphs.map(x=>`<p>${x}</p>`).join("") : "";
-  return `<article class="sp"><h3>${sp.name}</h3>${meta}${bullets}${paragraphs}</article>`;
+  const bio = bullets + paragraphs;
+  const body = bio
+    ? `<div class="sp-body"><div class="sp-body-inner">${bio}</div><button type="button" class="sp-tab" aria-expanded="false">展开</button></div>`
+    : "";
+  return `<article class="sp"><h3>${sp.name}</h3>${meta}${body}</article>`;
+}
+
+function clampShenzhenSpeakerBios(root){
+  root.querySelectorAll(".sp .sp-body-inner").forEach((inner)=>{
+    const tab = inner.parentElement && inner.parentElement.querySelector(".sp-tab");
+    if (!tab) return;
+    inner.classList.remove("is-collapsed");
+    const fs = parseFloat(getComputedStyle(inner).fontSize) || 16;
+    const maxH = fs * 1.65 * 10;
+    const full = inner.scrollHeight;
+    if (full <= maxH + 2){
+      tab.hidden = true;
+      inner.classList.remove("is-collapsed");
+      tab.setAttribute("aria-expanded", "false");
+      tab.textContent = "展开";
+    }else{
+      tab.hidden = false;
+      inner.classList.add("is-collapsed");
+      tab.setAttribute("aria-expanded", "false");
+      tab.textContent = "展开";
+    }
+  });
 }
 
 function render(city){
@@ -329,6 +384,7 @@ function render(city){
     return;
   }
   content.innerHTML = `<div class="speakers-grid">${shenzhenSpeakers.map(speakerCard).join("")}</div>`;
+  clampShenzhenSpeakerBios(content);
 }
 
 document.querySelectorAll(".city-btn").forEach(btn=>{
@@ -337,6 +393,25 @@ document.querySelectorAll(".city-btn").forEach(btn=>{
     btn.classList.add("active");
     render(btn.dataset.city);
   });
+});
+
+document.getElementById("speakers-content").addEventListener("click", (e)=>{
+  const tab = e.target.closest(".sp-tab");
+  if (!tab || tab.hidden) return;
+  const wrap = tab.closest(".sp-body");
+  if (!wrap) return;
+  const inner = wrap.querySelector(".sp-body-inner");
+  if (!inner) return;
+  const expanded = tab.getAttribute("aria-expanded") === "true";
+  if (expanded){
+    inner.classList.add("is-collapsed");
+    tab.setAttribute("aria-expanded", "false");
+    tab.textContent = "展开";
+  }else{
+    inner.classList.remove("is-collapsed");
+    tab.setAttribute("aria-expanded", "true");
+    tab.textContent = "收起";
+  }
 });
 
 render("shenzhen");
