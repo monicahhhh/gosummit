@@ -60,10 +60,14 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 }
 .field input:focus,.field select:focus{border-color:rgba(232,116,12,.6)}
 .field.full{grid-column:1 / -1}
-.submit-row{grid-column:1 / -1;display:flex;align-items:center;gap:14px;margin-top:4px}
-.btn{padding:12px 20px;border-radius:999px;border:1px solid var(--fg);background:var(--fg);color:#000;font-weight:600;cursor:pointer}
+.submit-row{
+  grid-column:1 / -1;
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:10px;margin-top:4px;
+}
+.btn{padding:12px 20px;border-radius:999px;border:1px solid var(--fg);background:var(--fg);color:#000;font-weight:600;cursor:pointer;letter-spacing:.06em}
 .btn[disabled]{opacity:.6;cursor:not-allowed}
-.hint{color:var(--fg-soft);font-size:14px}
+.hint{display:block;max-width:520px;color:var(--fg-soft);font-size:14px;line-height:1.55}
 .hint.success{color:#5be37a}
 .hint.error{color:#ff6f6f}
 .success-modal{
@@ -184,8 +188,8 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
         </select>
       </div>
       <div class="submit-row">
-        <button class="btn" type="submit">Submit Application</button>
-        <span class="hint" id="submit-hint">Attendance is free, but all applications require organizer approval. You will receive an email notification once approved.</span>
+        <button class="btn" type="submit">SUBMIT</button>
+        <span class="hint" id="submit-hint">Attendance to the conference is free, while the tour requires a fee. All applications are subject to organizer approval. Please check your email after submitting the form.</span>
       </div>
     </form>
   </section>
@@ -233,6 +237,8 @@ const cityMeta = {
   "Dubai-Dec": { label: "Dubai", monthLabel: "December", submitValue: "Dubai (December)" },
   "Shanghai-Apr": { label: "Shanghai", monthLabel: "April", submitValue: "Shanghai (April)" }
 };
+
+const DEFAULT_SUBMIT_HINT = "Attendance to the conference is free, while the tour requires a fee. All applications are subject to organizer approval. Please check your email after submitting the form.";
 
 const cityButtons = document.querySelectorAll(".city-btn");
 const cityTitle = document.getElementById("city-title");
@@ -314,16 +320,16 @@ form.addEventListener("submit", async (e) => {
       throw new Error(data.message || "Submission failed.");
     }
 
-    const successMessage = "Your application for " + cityLabel + " has been submitted. Attendance is free, but organizer approval is required. You will receive an email notification once approved.";
+    const successMessage = "Your application for " + cityLabel + " has been submitted. " + DEFAULT_SUBMIT_HINT;
     showSuccessModal(successMessage);
-    setHint("");
+    setHint(DEFAULT_SUBMIT_HINT);
     form.reset();
     cityInput.value = city;
   } catch (err) {
     setHint("Submission failed. Please try again in a minute or contact monica@agivilla.com.", "error");
   } finally {
     submitButton.disabled = false;
-    submitButton.textContent = "Submit Application";
+    submitButton.textContent = "SUBMIT";
   }
 });
 </script>
