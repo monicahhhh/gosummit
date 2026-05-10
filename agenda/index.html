@@ -93,6 +93,7 @@ main.agenda-singapore-jun .agenda-card{padding-top:28px}
 .agenda-city h2{font-family:var(--serif);font-size:clamp(34px,4vw,56px);letter-spacing:-.02em}
 .agenda-city span{color:var(--fg-soft);text-transform:uppercase;letter-spacing:.18em;font-size:12px}
 
+.agenda-date{margin-bottom:22px;color:var(--fg-soft);font-size:13px;letter-spacing:.12em;text-transform:uppercase}
 .session + .session{margin-top:28px}
 .session h3{
   font-family:var(--serif);font-size:clamp(24px,2.6vw,36px);letter-spacing:-.01em;line-height:1.2;
@@ -299,7 +300,8 @@ function renderAgenda(city) {
   }
 
   const singaporeOnly = city === "singapore-jun";
-  contentEl.innerHTML = sections.map(section => `
+  const dateLine = singaporeOnly ? `<p class="agenda-date">June 13, 2026</p>` : "";
+  contentEl.innerHTML = dateLine + sections.map(section => `
     <article class="session">
       <h3>${section.title}</h3>
       ${singaporeOnly ? "" : `<p class="focus">${section.focus}</p>`}
