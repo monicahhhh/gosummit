@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>GO SUMMIT Shenzhen — May 26</title>
+<title>GO SUMMIT — May 26, 2026</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
@@ -155,13 +155,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;margin-top:80px}
 
 <main>
   <header class="page-hero">
-    <h1>Shenzhen <em>May</em></h1>
+    <h1>May <em>2026</em></h1>
     <p>May 26, 2026 · GO SUMMIT</p>
   </header>
 
   <section id="agenda" class="block agenda-card" aria-labelledby="agenda-heading">
     <div class="agenda-city">
-      <h2 id="agenda-heading">Shenzhen Agenda</h2>
+      <h2 id="agenda-heading">Agenda</h2>
       <span>May · Full Day Program</span>
     </div>
     <div id="agenda-content"></div>
@@ -169,7 +169,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;margin-top:80px}
 
   <section id="speakers" class="block" aria-labelledby="speakers-heading">
     <div class="speakers-head">
-      <h2 id="speakers-heading">Shenzhen Speakers</h2>
+      <h2 id="speakers-heading">Speakers</h2>
       <span>May · Featured Lineup</span>
     </div>
     <div id="speakers-content"></div>
@@ -211,7 +211,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;margin-top:80px}
   <section id="register" class="block form-wrap" aria-labelledby="register-heading">
     <div class="form-head">
       <h2 id="register-heading">Registration</h2>
-      <span>Shenzhen (May) · Open for Application</span>
+      <span>May 2026 · Open for Application</span>
     </div>
     <form id="attend-form">
       <input type="hidden" name="city" id="city-input" value="Shenzhen (May)" />
@@ -533,7 +533,6 @@ form.addEventListener("submit", async (e) => {
   e.preventDefault();
   const fd = new FormData(form);
   const city = String(fd.get("city") || "");
-  const cityLabel = city.replace(/\s*\([^)]*\)\s*$/, "");
   const payload = {
     city,
     name: String(fd.get("name") || "").trim(),
@@ -563,7 +562,7 @@ form.addEventListener("submit", async (e) => {
       throw new Error(data.message || "Submission failed.");
     }
 
-    const successMessage = "Your application for " + cityLabel + " has been submitted. " + DEFAULT_SUBMIT_HINT;
+    const successMessage = "Your application for May 2026 has been submitted. " + DEFAULT_SUBMIT_HINT;
     showSuccessModal(successMessage);
     setHint(DEFAULT_SUBMIT_HINT);
     form.reset();
