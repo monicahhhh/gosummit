@@ -92,7 +92,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 5%,#000 95%,transparent 100%);
   background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));
 }
-.photo-wall,.marquee,.hero-sub{position:relative;z-index:1}
+.photo-wall,.tour-grid-section,.hero-sub{position:relative;z-index:1}
 .photo-track{
   display:flex;gap:18px;width:max-content;
   animation:photoScroll 78s linear infinite;
@@ -121,41 +121,65 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   to{transform:translate3d(-50%,0,0)}
 }
 
-/* ——— hero marquee (auto-scrolling tour ticker under logo) ——— */
-.marquee{
+/* ——— hero tour grid (replaces scrolling city ticker) ——— */
+.tour-grid-section{
   margin-top:36px;
-  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
-  overflow:hidden;position:relative;
-  padding:28px 0;
-  mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
-  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:36px 0 40px;
+  position:relative;z-index:1;
 }
-.marquee-track{
-  display:flex;gap:0;width:max-content;
-  animation:marquee 58s linear infinite;
-  will-change:transform;
+.tour-grid-head{
+  font-family:var(--serif);
+  font-weight:700;
+  font-size:clamp(28px,3.6vw,48px);
+  letter-spacing:-.02em;
+  line-height:1.12;
+  color:var(--fg);
+  max-width:min(920px,92vw);
+  margin-bottom:14px;
 }
-.marquee:hover .marquee-track{animation-play-state:paused}
-.marquee-item{
-  display:flex;align-items:baseline;gap:20px;
-  padding:0 42px;white-space:nowrap;
-  border-right:1px solid var(--line);
+.tour-grid-accent{
+  width:48px;height:3px;background:var(--accent);
+  border-radius:1px;margin-bottom:28px;
 }
-.marquee-item .m{
-  font-family:var(--serif);font-style:italic;font-weight:500;
-  font-size:clamp(28px,2.8vw,40px);color:var(--accent);letter-spacing:-.01em;line-height:1;
+.tour-grid-cards{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  max-width:min(960px,94vw);
 }
-.marquee-item .c{
-  font-family:var(--serif);font-weight:500;
-  font-size:clamp(28px,3vw,44px);letter-spacing:-.02em;line-height:1;color:var(--fg);
+.tour-grid-cell{
+  background:var(--bg);
+  padding:22px 20px 24px;
+  min-height:108px;
+  display:flex;flex-direction:column;justify-content:flex-start;gap:10px;
 }
-.marquee-item.flag .c{color:var(--accent)}
-.marquee-item.flag::after{
-  content:"★";color:var(--accent);margin-left:10px;font-size:14px;align-self:center;
+.tour-grid-cell .mo{
+  font-family:var(--serif);
+  font-style:italic;font-weight:600;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--accent);
+  line-height:1.2;
 }
-@keyframes marquee{
-  from{transform:translate3d(0,0,0)}
-  to{transform:translate3d(-50%,0,0)}
+.tour-grid-cell .ci{
+  font-family:var(--serif);
+  font-weight:600;
+  font-size:clamp(22px,2.4vw,32px);
+  letter-spacing:-.02em;
+  line-height:1.1;
+  color:var(--fg);
+}
+.tour-grid-cell.flag .ci{color:var(--accent)}
+.tour-grid-cell.flag .ci::after{
+  content:" ★";
+  font-size:14px;vertical-align:middle;
+}
+@media (max-width:700px){
+  .tour-grid-cards{grid-template-columns:1fr}
+  .tour-grid-cell{min-height:0}
 }
 .hero-sub{
   display:grid;grid-template-columns:1.2fr .8fr;gap:40px;
@@ -505,28 +529,21 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
     </div>
   </div>
 
-  <div id="agenda" class="marquee reveal" aria-label="2026 World Tour schedule">
-    <div class="marquee-track">
-      <div class="marquee-item"><span class="m">Apr</span><span class="c">Shanghai</span></div>
-      <div class="marquee-item"><span class="m">May</span><span class="c">Shenzhen</span></div>
-      <div class="marquee-item"><span class="m">Jun</span><span class="c">Singapore</span></div>
-      <div class="marquee-item"><span class="m">Jul</span><span class="c">Shanghai &middot; WAIC</span></div>
-      <div class="marquee-item"><span class="m">Aug</span><span class="c">Hongkong</span></div>
-      <div class="marquee-item"><span class="m">Sep</span><span class="c">Hangzhou</span></div>
-      <div class="marquee-item"><span class="m">Oct</span><span class="c">Singapore</span></div>
-      <div class="marquee-item"><span class="m">Nov</span><span class="c">Shenzhen</span></div>
-      <div class="marquee-item flag"><span class="m">Dec</span><span class="c">Dubai</span></div>
-      <div class="marquee-item"><span class="m">Apr</span><span class="c">Shanghai</span></div>
-      <div class="marquee-item"><span class="m">May</span><span class="c">Shenzhen</span></div>
-      <div class="marquee-item"><span class="m">Jun</span><span class="c">Singapore</span></div>
-      <div class="marquee-item"><span class="m">Jul</span><span class="c">Shanghai &middot; WAIC</span></div>
-      <div class="marquee-item"><span class="m">Aug</span><span class="c">Hongkong</span></div>
-      <div class="marquee-item"><span class="m">Sep</span><span class="c">Hangzhou</span></div>
-      <div class="marquee-item"><span class="m">Oct</span><span class="c">Singapore</span></div>
-      <div class="marquee-item"><span class="m">Nov</span><span class="c">Shenzhen</span></div>
-      <div class="marquee-item flag"><span class="m">Dec</span><span class="c">Dubai</span></div>
+  <section id="agenda" class="tour-grid-section reveal" aria-label="2026 world tour cities">
+    <h2 class="tour-grid-head">12 cities. Four regions. One year of continuous presence.</h2>
+    <div class="tour-grid-accent" aria-hidden="true"></div>
+    <div class="tour-grid-cards">
+      <div class="tour-grid-cell"><span class="mo">Apr 2026</span><span class="ci">Shanghai</span></div>
+      <div class="tour-grid-cell"><span class="mo">May 2026</span><span class="ci">Shenzhen</span></div>
+      <div class="tour-grid-cell"><span class="mo">Jun 2026</span><span class="ci">Singapore</span></div>
+      <div class="tour-grid-cell"><span class="mo">Jul 2026</span><span class="ci">Shanghai</span></div>
+      <div class="tour-grid-cell"><span class="mo">Aug 2026</span><span class="ci">Chengdu</span></div>
+      <div class="tour-grid-cell"><span class="mo">Sep 2026</span><span class="ci">Hangzhou</span></div>
+      <div class="tour-grid-cell"><span class="mo">Oct 2026</span><span class="ci">Singapore</span></div>
+      <div class="tour-grid-cell"><span class="mo">Nov 2026</span><span class="ci">Shenzhen</span></div>
+      <div class="tour-grid-cell flag"><span class="mo">Dec 2026</span><span class="ci">Dubai</span></div>
     </div>
-  </div>
+  </section>
 
   <section id="about" class="why-now reveal" aria-label="Why now narrative">
     <h3>WHY <em>NOW</em></h3>
