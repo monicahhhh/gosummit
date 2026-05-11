@@ -76,13 +76,9 @@ main{padding:130px var(--gutter) 90px;width:80vw;max-width:var(--maxw);margin:0 
 .p-head h2 em{font-style:italic;color:var(--fg-soft);font-weight:400}
 .eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--fg-dim);display:inline-flex;align-items:center;gap:10px}
 .eyebrow::before{content:"";width:20px;height:1px;background:var(--fg-dim)}
-.organizer{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px 48px;padding:28px 0 32px;border-bottom:1px solid var(--line)}
-.org-block{display:flex;align-items:center;gap:40px;min-width:min(100%, 260px)}
-.org-block-co{flex:1 1 auto;justify-content:flex-end;margin-left:auto}
+.organizer{display:flex;align-items:center;gap:40px;padding:28px 0 32px;border-bottom:1px solid var(--line)}
 .org-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);min-width:120px;font-weight:500}
 .org-logo img{height:52px;width:auto}
-.org-co-logos{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.org-co-logos img{height:48px;width:auto;max-width:min(160px, 42vw);object-fit:contain}
 .p-wall{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line)}
 .p-card{height:118px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:12px;background:transparent;transition:background .3s ease}
 .p-card:nth-child(5n){border-right:0}
@@ -136,8 +132,6 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;margin-top:80px}
   :root{--gutter:6vw}
   main{padding-top:110px}
   .organizer{flex-direction:column;align-items:flex-start;gap:18px}
-  .org-block,.org-block-co{width:100%;justify-content:flex-start}
-  .org-block-co{margin-left:0}
   .f-grid{grid-template-columns:1fr}
   .f-bottom{flex-direction:column;gap:10px}
 }
@@ -186,17 +180,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 36px;margin-top:80px}
       <div class="eyebrow">A founding circle in formation</div>
     </div>
     <div class="organizer">
-      <div class="org-block">
-        <div class="org-label">Organized by</div>
-        <div class="org-logo"><a href="https://www.agivilla.com" target="_blank" rel="noopener noreferrer"><img src="../assets/agivilla-white-logo.png" alt="AGI Villa" /></a></div>
-      </div>
-      <div class="org-block org-block-co">
-        <div class="org-label">Co-organized by</div>
-        <div class="org-co-logos">
-          <img src="../assets/partners/co-organizer-aws.png" alt="AWS" />
-          <img src="../assets/partners/co-organizer-wave.png" alt="WAVE — World AI Vision &amp; Empowerment Association" />
-        </div>
-      </div>
+      <div class="org-label">Organized by</div>
+      <div class="org-logo"><a href="https://www.agivilla.com" target="_blank" rel="noopener noreferrer"><img src="../assets/agivilla-white-logo.png" alt="AGI Villa" /></a></div>
     </div>
     <div class="p-wall">
 <div class="p-card"><img src="../assets/partners/datawhale.png" alt="Datawhale" /></div>
