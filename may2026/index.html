@@ -84,6 +84,7 @@ main{padding:130px var(--gutter) 90px;width:80vw;max-width:var(--maxw);margin:0 
 .p-card:nth-child(5n){border-right:0}
 .p-card:hover{background:rgba(255,255,255,.02)}
 .p-card img{max-width:92%;max-height:72px;width:auto;height:auto;object-fit:contain}
+.p-card>a{display:flex;align-items:center;justify-content:center;width:100%;height:100%}
 
 .form-wrap{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));padding:28px}
 .form-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px;flex-wrap:wrap}
@@ -109,16 +110,14 @@ form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
 .success-modal .row{display:flex;justify-content:flex-end}
 .success-modal button{padding:10px 22px;border-radius:999px;border:1px solid var(--fg);background:var(--fg);color:#000;font-weight:600;cursor:pointer}
 
-/* ——— footer ——— */
-footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:var(--fg-dim);font-size:13px}
-.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;width:80vw;margin:0 auto 50px;align-items:start}
-.f-grid > div{display:flex;flex-direction:column;align-items:flex-start}
-.f-grid h4{color:var(--fg);font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 18px}
-.f-grid ul{list-style:none;display:grid;gap:10px}
+footer{border-top:1px solid var(--line);padding:56px 0 36px;margin-top:80px}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.f-grid h4{color:var(--fg);font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 16px}
+.f-grid ul{list-style:none;display:grid;gap:10px;color:var(--fg-soft)}
 .f-grid a:hover{color:var(--fg)}
-.f-grid .sub{color:var(--fg-soft);max-width:360px;line-height:1.6;margin-top:10px}
-.f-grid .org-ref{margin-top:14px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim);font-weight:500}
-.f-bottom{width:80vw;margin:0 auto;display:flex;justify-content:space-between;padding-top:22px;border-top:1px solid var(--line)}
+.f-grid .sub{color:var(--fg-soft);max-width:360px;line-height:1.6;margin-top:8px}
+.f-grid .org-ref{margin-top:12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim)}
+.f-bottom{display:flex;justify-content:space-between;padding-top:20px;border-top:1px solid var(--line);margin-top:36px;font-size:13px;color:var(--fg-dim)}
 
 @media (max-width:1024px){
   .nav ul{display:none}
@@ -128,13 +127,16 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
   .p-wall{grid-template-columns:repeat(3,1fr)}
   .p-card:nth-child(5n){border-right:1px solid var(--line)}
   .p-card:nth-child(3n){border-right:0}
-  .f-grid{grid-template-columns:1fr 1fr;gap:30px}
+  .f-grid{grid-template-columns:1fr 1fr}
 }
 @media (max-width:600px){
   :root{--gutter:6vw}
   main{padding-top:110px}
   .organizer{flex-direction:column;align-items:flex-start;gap:18px}
+  .org-block,.org-block-co{width:100%;justify-content:flex-start}
+  .org-block-co{margin-left:0}
   .f-grid{grid-template-columns:1fr}
+  .f-bottom{flex-direction:column;gap:10px}
 }
 
 </style>
@@ -191,7 +193,7 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
       <div class="p-card"><img src="../assets/partners/guancha.png" alt="观猹" /></div>
       <div class="p-card"><img src="../assets/partners/ncc.png" alt="NCC" /></div>
       <div class="p-card"><img src="../assets/partners/s-chuang.png" alt="S 创" /></div>
-      <div class="p-card"><img src="../assets/partners/wave.png" alt="WAVE" /></div>
+      <div class="p-card"><a href="https://waveworld.org/" target="_blank" rel="noopener noreferrer"><img src="../assets/partners/wave.png" alt="WAVE" /></a></div>
       <div class="p-card"><img src="../assets/partners/guixingren.png" alt="硅星人" /></div>
       <div class="p-card"><img src="../assets/partners/founder-park.png" alt="Founder Park" /></div>
       <div class="p-card"><img src="../assets/partners/kunpenghui.png" alt="鲲鹏会" /></div>
@@ -246,22 +248,22 @@ footer{border-top:1px solid var(--line);padding:60px var(--gutter) 40px;color:va
       </div>
       <div class="submit-row">
         <button class="btn" type="submit">SUBMIT</button>
-        <span class="hint" id="submit-hint">Attendance to the conference is free. All applications are subject to organizer approval. Please check your email after submitting the form.</span>
+        <span class="hint" id="submit-hint">Attendance to the conference is free, while the tour requires a fee. All applications are subject to organizer approval. Please check your email after submitting the form.</span>
       </div>
     </form>
   </section>
 </main>
 
-<footer id="contact">
+<footer>
   <div class="f-grid">
     <div>
-      <h4 style="margin-bottom:14px">GO SUMMIT</h4>
+      <h4>GO SUMMIT</h4>
       <p class="sub">Monthly, in a different city. Build the next global category, with the people actually doing it.</p>
       <p class="org-ref">Organized by AGI Villa · 2026</p>
     </div>
     <div>
       <h4>ABOUT</h4>
-      <ul><li><a href="/agenda">AGENDA</a></li><li><a href="/speakers">SPEAKERS</a></li><li><a href="/#partners">PARTNERS</a></li></ul>
+      <ul><li><a href="/#about">ABOUT</a></li><li><a href="/agenda">AGENDA</a></li><li><a href="/speakers">SPEAKERS</a></li><li><a href="/#partners">PARTNERS</a></li></ul>
     </div>
     <div>
       <h4>CONNECT</h4>
@@ -497,7 +499,7 @@ document.getElementById("speakers-content").addEventListener("click", (e) => {
   }
 });
 
-const DEFAULT_SUBMIT_HINT = "Attendance to the conference is free. All applications are subject to organizer approval. Please check your email after submitting the form.";
+const DEFAULT_SUBMIT_HINT = "Attendance to the conference is free, while the tour requires a fee. All applications are subject to organizer approval. Please check your email after submitting the form.";
 
 const cityInput = document.getElementById("city-input");
 const form = document.getElementById("attend-form");
