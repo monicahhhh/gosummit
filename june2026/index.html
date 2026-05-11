@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>GO SUMMIT Singapore — June 13th, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#000;--fg:#f5f5f7;--fg-soft:#a1a1a6;--fg-dim:#86868B;--line:rgba(255,255,255,.1);
+  --accent:#e8740c;--glass:rgba(10,10,10,.65);--maxw:1280px;
+  --serif:"Playfair Display",Georgia,serif;
+  --sans:"Source Sans 3",-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+  --gutter:10vw;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fg);font-family:var(--sans);line-height:1.6}
+a{color:inherit;text-decoration:none}
+
+.nav{position:fixed;top:0;left:0;right:0;z-index:60;backdrop-filter:saturate(180%) blur(22px);-webkit-backdrop-filter:saturate(180%) blur(22px);background:var(--glass);border-bottom:1px solid var(--line)}
+.nav-inner{width:80vw;max-width:var(--maxw);margin:0 auto;padding:14px 0;display:flex;align-items:center;justify-content:space-between;font-size:14px}
+.wordmark{display:inline-flex;align-items:center;gap:10px}
+.wordmark img{height:68px;width:auto;display:block;filter:brightness(.98) contrast(1.02)}
+.wordmark .sep{display:inline-block;margin-left:10px;padding-left:12px;border-left:1px solid var(--line);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-soft);font-weight:500}
+.nav ul{display:flex;gap:30px;list-style:none;color:var(--fg-soft)}
+.nav ul a{transition:color .2s ease}
+.nav ul a:hover{color:var(--fg)}
+
+main{padding:130px var(--gutter) 90px;width:80vw;max-width:var(--maxw);margin:0 auto}
+.page-hero{border-bottom:1px solid var(--line);padding-bottom:28px;margin-bottom:48px}
+.page-hero h1{font-family:var(--serif);font-size:clamp(40px,5vw,72px);line-height:1;letter-spacing:-.02em}
+.page-hero h1 em{font-style:italic;color:var(--accent)}
+.page-hero p{margin-top:14px;color:var(--fg-soft);font-size:17px}
+
+.block{margin-bottom:72px}
+.block:last-of-type{margin-bottom:0}
+
+.agenda-card{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));padding:34px 30px 28px}
+.agenda-city{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:22px}
+.agenda-city h2{font-family:var(--serif);font-size:clamp(30px,3.5vw,52px);letter-spacing:-.02em}
+.agenda-city span{color:var(--fg-soft);text-transform:uppercase;letter-spacing:.18em;font-size:12px}
+.session + .session{margin-top:26px}
+.session h3{font-family:var(--serif);font-size:clamp(22px,2.4vw,34px);letter-spacing:-.01em;line-height:1.2}
+.session h3 em{font-style:italic;color:var(--accent);font-weight:500}
+.session .focus{margin-top:8px;color:var(--fg-soft);font-size:16px;border-left:2px solid var(--accent);padding-left:12px}
+.session ul{margin-top:12px;padding-left:22px;display:grid;gap:8px}
+.session li{font-size:17px;line-height:1.6;color:#dfdfe4}
+.agenda-date{margin-bottom:22px;color:var(--fg-soft);font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.session-entries{margin-top:18px;display:grid;gap:22px}
+.agenda-entry{border-left:2px solid var(--accent);padding-left:14px}
+.agenda-entry-title{font-family:var(--serif);font-size:clamp(19px,2vw,24px);font-weight:600;letter-spacing:-.01em;line-height:1.25;color:var(--fg);margin:0 0 10px}
+.agenda-entry-body{margin:0;font-size:16px;line-height:1.65;color:#dfdfe4}
+.agenda-entry-body p{margin:0 0 10px}
+.agenda-entry-body p:last-child{margin-bottom:0}
+
+.speakers-head{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:22px;display:flex;justify-content:space-between;gap:16px;align-items:flex-end;flex-wrap:wrap}
+.speakers-head h2{font-family:var(--serif);font-size:clamp(30px,3.5vw,52px);letter-spacing:-.02em}
+.speakers-head span{color:var(--fg-soft);text-transform:uppercase;letter-spacing:.18em;font-size:12px}
+.speakers-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sp{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));padding:20px 20px 18px}
+.sp h3{font-family:var(--serif);font-size:28px;line-height:1.1;letter-spacing:-.01em}
+.sp .meta{margin-top:5px;color:var(--fg-soft);font-size:14px}
+.sp .meta a{color:var(--accent)}
+.sp-body{margin-top:12px}
+.sp-body-inner{font-size:16px;line-height:1.65;color:#dfdfe4}
+.sp-body-inner ul{margin:0 0 0 18px;display:grid;gap:6px}
+.sp-body-inner li{font-size:16px;line-height:1.62;color:#dfdfe4}
+.sp-body-inner p{margin:12px 0 0;font-size:16px;line-height:1.7;color:#dfdfe4}
+.sp-body-inner > :first-child{margin-top:0}
+.sp-body-inner.is-collapsed{max-height:calc(1.65em * 10);overflow:hidden;position:relative}
+.sp-body-inner.is-collapsed::after{content:"";position:absolute;left:0;right:0;bottom:0;height:3.2em;pointer-events:none;background:linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,.88))}
+.sp-tab{display:flex;align-items:center;justify-content:center;width:28px;height:28px;margin:10px auto 0;padding:0;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(255,255,255,.06);cursor:pointer;transition:background .2s ease,border-color .2s ease}
+.sp-tab:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
+.sp-tab:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sp-tab[hidden]{display:none!important}
+.sp-tab-icon{display:block;width:0;height:0;margin-top:2px;border-left:5px solid transparent;border-right:5px solid transparent;border-top:7px solid #f5f5f7;border-bottom:0}
+.sp-tab[aria-expanded="true"] .sp-tab-icon{margin-top:-1px;border-top:0;border-bottom:7px solid #f5f5f7}
+
+.coming{border:1px solid var(--line);padding:30px;color:var(--fg-soft);font-size:18px;background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0))}
+.coming a{color:var(--accent);text-decoration:underline}
+.coming a:hover{color:var(--fg)}
+
+.p-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:36px;flex-wrap:wrap;gap:16px}
+.p-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.2vw,44px);letter-spacing:-.015em}
+.p-head h2 em{font-style:italic;color:var(--fg-soft);font-weight:400}
+.eyebrow{font-size:11px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;color:var(--fg-dim);display:inline-flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:20px;height:1px;background:var(--fg-dim)}
+.organizer{display:flex;align-items:center;gap:40px;padding:28px 0 32px;border-bottom:1px solid var(--line)}
+.org-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--fg-dim);min-width:120px;font-weight:500}
+.org-logo img{height:52px;width:auto}
+.p-wall{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--line)}
+.p-card{height:118px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:center;padding:12px;background:transparent;transition:background .3s ease}
+.p-card:nth-child(5n){border-right:0}
+.p-card:hover{background:rgba(255,255,255,.02)}
+.p-card img{max-width:92%;max-height:72px;width:auto;height:auto;object-fit:contain}
+
+.form-wrap{border:1px solid var(--line);background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,0));padding:28px}
+.form-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-bottom:1px solid var(--line);padding-bottom:16px;margin-bottom:20px;flex-wrap:wrap}
+.form-head h2{font-family:var(--serif);font-size:clamp(28px,3.2vw,48px);letter-spacing:-.02em}
+.form-head span{color:var(--fg-soft);text-transform:uppercase;letter-spacing:.18em;font-size:12px}
+form{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-soft)}
+.field input,.field select{width:100%;background:#060606;border:1px solid var(--line);color:var(--fg);padding:12px 14px;border-radius:8px;font:inherit;font-size:16px;outline:none}
+.field input:focus,.field select:focus{border-color:rgba(232,116,12,.6)}
+.field.full{grid-column:1 / -1}
+.submit-row{grid-column:1 / -1;display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-top:4px}
+.btn{padding:12px 20px;border-radius:999px;border:1px solid var(--fg);background:var(--fg);color:#000;font-weight:600;cursor:pointer;letter-spacing:.06em}
+.btn[disabled]{opacity:.6;cursor:not-allowed}
+.hint{display:block;max-width:520px;color:var(--fg-soft);font-size:14px;line-height:1.55}
+.hint.success{color:#5be37a}
+.hint.error{color:#ff6f6f}
+.success-modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,.55);z-index:120}
+.success-modal.show{display:flex}
+.success-modal .panel{width:min(720px,92vw);background:#111;border:1px solid var(--line);border-radius:18px;padding:28px 26px 24px;box-shadow:0 18px 60px rgba(0,0,0,.55)}
+.success-modal h3{font-size:18px;margin-bottom:14px}
+.success-modal p{font-size:18px;line-height:1.45;margin-bottom:18px}
+.success-modal .row{display:flex;justify-content:flex-end}
+.success-modal button{padding:10px 22px;border-radius:999px;border:1px solid var(--fg);background:var(--fg);color:#000;font-weight:600;cursor:pointer}
+
+footer{border-top:1px solid var(--line);padding:56px 0 36px;margin-top:80px}
+.f-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px}
+.f-grid h4{color:var(--fg);font-weight:500;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin:0 0 16px}
+.f-grid ul{list-style:none;display:grid;gap:10px;color:var(--fg-soft)}
+.f-grid a:hover{color:var(--fg)}
+.f-grid .sub{color:var(--fg-soft);max-width:360px;line-height:1.6;margin-top:8px}
+.f-grid .org-ref{margin-top:12px;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--fg-dim)}
+.f-bottom{display:flex;justify-content:space-between;padding-top:20px;border-top:1px solid var(--line);margin-top:36px;font-size:13px;color:var(--fg-dim)}
+
+@media (max-width:1024px){
+  .nav ul{display:none}
+  .wordmark .sep{display:none}
+  .speakers-grid{grid-template-columns:1fr}
+  form{grid-template-columns:1fr}
+  .p-wall{grid-template-columns:repeat(3,1fr)}
+  .p-card:nth-child(5n){border-right:1px solid var(--line)}
+  .p-card:nth-child(3n){border-right:0}
+  .f-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:600px){
+  :root{--gutter:6vw}
+  main{padding-top:110px}
+  .organizer{flex-direction:column;align-items:flex-start;gap:18px}
+  .f-grid{grid-template-columns:1fr}
+  .f-bottom{flex-direction:column;gap:10px}
+}
+
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="wordmark"><img src="../assets/go-summit-logo.png" alt="GO Summit" /><span class="sep">WORLD TOUR 2026-2027</span></a>
+    <ul>
+      <li><a href="/#about">ABOUT</a></li>
+      <li><a href="/agenda">AGENDA</a></li>
+      <li><a href="/speakers">SPEAKERS</a></li>
+      <li><a href="/#partners">PARTNERS</a></li>
+      <li><a href="/attend">ATTEND</a></li>
+      <li><a href="/contact">CONTACT</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main>
+  <header class="page-hero">
+    <h1>GO SUMMIT Singapore&nbsp;&nbsp;&nbsp;<em>June 13th, 2026</em></h1>
+  </header>
+
+  <section id="agenda" class="block agenda-card" aria-labelledby="agenda-heading">
+    <div class="agenda-city">
+      <h2 id="agenda-heading">Agenda</h2>
+      <span>June 13, 2026 · Full Day Program</span>
+    </div>
+    <div id="agenda-content"></div>
+  </section>
+
+  <section id="speakers" class="block" aria-labelledby="speakers-heading">
+    <div class="speakers-head">
+      <h2 id="speakers-heading">Speakers</h2>
+      <span>June · Lineup being finalized</span>
+    </div>
+    <div id="speakers-content"></div>
+  </section>
+
+  <section id="partners" class="block" aria-labelledby="partners-heading">
+    <div class="p-head">
+      <h2 id="partners-heading">Organizer &amp; <em>partners.</em></h2>
+      <div class="eyebrow">A founding circle in formation</div>
+    </div>
+    <div class="organizer">
+      <div class="org-label">Organized by</div>
+      <div class="org-logo"><a href="https://www.agivilla.com" target="_blank" rel="noopener noreferrer"><img src="../assets/agivilla-white-logo.png" alt="AGI Villa" /></a></div>
+    </div>
+    <div class="p-wall">
+<div class="p-card"><img src="../assets/partners/datawhale.png" alt="Datawhale" /></div>
+      <div class="p-card"><img src="../assets/partners/way2agi.png" alt="Way2AGI" /></div>
+      <div class="p-card"><img src="../assets/partners/agent-universe.png" alt="特工宇宙" /></div>
+      <div class="p-card"><img src="../assets/partners/guancha.png" alt="观猹" /></div>
+      <div class="p-card"><img src="../assets/partners/ncc.png" alt="NCC" /></div>
+      <div class="p-card"><img src="../assets/partners/s-chuang.png" alt="S 创" /></div>
+      <div class="p-card"><img src="../assets/partners/wave.png" alt="WAVE" /></div>
+      <div class="p-card"><img src="../assets/partners/guixingren.png" alt="硅星人" /></div>
+      <div class="p-card"><img src="../assets/partners/founder-park.png" alt="Founder Park" /></div>
+      <div class="p-card"><img src="../assets/partners/kunpenghui.png" alt="鲲鹏会" /></div>
+      <div class="p-card"><img src="../assets/partners/tgo-global.png" alt="TGO Global" /></div>
+      <div class="p-card"><img src="../assets/partners/linkloud.png" alt="Linkloud" /></div>
+      <div class="p-card"><img src="../assets/partners/seamate.png" alt="SEAMATE" /></div>
+      <div class="p-card"><img src="../assets/partners/chuhaiqu-fuhuaqi.png" alt="出海去孵化器" /></div>
+      <div class="p-card"><img src="../assets/partners/cmi.png" alt="CMI" /></div>
+      <div class="p-card"><img src="../assets/partners/bitun.png" alt="彼屯" /></div>
+      <div class="p-card"><img src="../assets/partners/mosu.png" alt="模速" /></div>
+      <div class="p-card"><img src="../assets/partners/mydow.png" alt="Mydow" /></div>
+      <div class="p-card"><img src="../assets/partners/chuhai-fuzi-fumu.png" alt="出海分子/分母" /></div>
+      <div class="p-card"><img src="../assets/partners/kaiyuanshe.png" alt="开源社" /></div>
+    </div>
+  </section>
+
+  <section id="register" class="block form-wrap" aria-labelledby="register-heading">
+    <div class="form-head">
+      <h2 id="register-heading">Registration</h2>
+      <span>June 2026 · Open for Application</span>
+    </div>
+    <form id="attend-form">
+      <input type="hidden" name="city" id="city-input" value="Singapore (June)" />
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" required />
+      </div>
+      <div class="field">
+        <label for="title">Title</label>
+        <input id="title" name="title" type="text" required />
+      </div>
+      <div class="field">
+        <label for="company">Company</label>
+        <input id="company" name="company" type="text" required />
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required />
+      </div>
+      <div class="field full">
+        <label for="companyType">Company Type</label>
+        <select id="companyType" name="companyType" required>
+          <option value="">Select company type</option>
+          <option>Startup</option>
+          <option>Investor / VC</option>
+          <option>Corporate / Enterprise</option>
+          <option>Media</option>
+          <option>Government / Association</option>
+          <option>Service Provider</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="submit-row">
+        <button class="btn" type="submit">SUBMIT</button>
+        <span class="hint" id="submit-hint">Attendance to the conference is free, while the tour requires a fee. All applications are subject to organizer approval. Please check your email after submitting the form.</span>
+      </div>
+    </form>
+  </section>
+</main>
+
+<footer>
+  <div class="f-grid">
+    <div>
+      <h4>GO SUMMIT</h4>
+      <p class="sub">Monthly, in a different city. Build the next global category, with the people actually doing it.</p>
+      <p class="org-ref">Organized by AGI Villa · 2026</p>
+    </div>
+    <div>
+      <h4>ABOUT</h4>
+      <ul><li><a href="/#about">ABOUT</a></li><li><a href="/agenda">AGENDA</a></li><li><a href="/speakers">SPEAKERS</a></li><li><a href="/#partners">PARTNERS</a></li></ul>
+    </div>
+    <div>
+      <h4>CONNECT</h4>
+      <ul><li><a href="/attend">ATTEND</a></li><li><a href="/contact">CONTACT</a></li></ul>
+    </div>
+  </div>
+  <div class="f-bottom">
+    <span>© 2026 GO SUMMIT. All rights reserved.</span>
+    <span>Designed in Shanghai · Shipped worldwide.</span>
+  </div>
+</footer>
+
+<div class="success-modal" id="success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title">
+  <div class="panel">
+    <h3 id="success-title">Submission Confirmed</h3>
+    <p id="success-message"></p>
+    <div class="row"><button id="success-ok" type="button">OK</button></div>
+  </div>
+</div>
+
+<script>
+
+const juneSingaporeAgenda = [
+  {
+    title: "Act One · The Build <em>(10:00 – 12:00)</em>",
+    entries: [
+      {
+        title: "Open the Bridge.",
+        body: "The global AI opportunity, and China's asymmetric role in it. Why Singapore, and why this room is the right place to open the corridor. A concise map of where capital and capacity are moving across four corridors — not a single market — and how China's supply-chain density, iteration tempo, saturated test field, and next-generation founders function as a non-substitutable supply side. How GO SUMMIT anchors the tour in Singapore, and the three things each guest can take away from this day."
+      },
+      {
+        title: "Inside the China Operating System.",
+        body: "The 18-week cycle, the model–silicon flywheel, and what plugging in really looks like. A walkthrough of the real operating tempo of AI × advanced manufacturing in China — not as narrative, but as numbers, cycle times, and supply-chain decisions. What it means for an outsider to plug in, and what it gives back."
+      },
+      {
+        title: "Singapore's Sovereign AI Playbook.",
+        body: "What EDB, IMDA, Temasek, and AI Verify actually provide. Not a pitch — an architecture walk-through of the specific toolkit Singapore offers as the four-way hub connecting China, Southeast Asia, India, and the Gulf: policy posture, compute, capital, licences, and trust framework."
+      },
+      {
+        title: "Playing Asia — Where founders set up, ship, raise.",
+        body: "A working panel built on choices, not opinions: which Asian markets to pick first, where to incorporate, bank, hire, and raise. A turn-by-turn founder's map of the corridor, translated into decisions that can be taken in the week after the summit."
+      }
+    ]
+  },
+  {
+    title: "Act Two · The Land &amp; Scale <em>(13:30 – 17:30)</em>",
+    entries: [
+      {
+        title: "From Demo to Deployment.",
+        body: "The operator's view on breaking through Asian enterprise procurement. Why most AI products stall between proof-of-concept and purchase order — and the stage-by-stage commercial path through Asian enterprise: POC design, budget mechanics, regulatory checkpoints, and references that travel."
+      },
+      {
+        title: "Embodied AI Lands in Asia.",
+        body: "Why humanoids and industrial robots commercialise here first. Asia's factory density, aging demographics, policy tailwinds, and local capital make it the first commercial battleground for physical AI — what ships, what doesn't, and why this is the landing year."
+      },
+      {
+        title: "The Asian Consumer AI Wave.",
+        body: "Why Asia-first consumer AI is a different product, not a localisation. The cultural, linguistic, regulatory, and payment stack founders need to build — and what actually travels across markets spanning Southeast Asia, India, and the Middle East."
+      },
+      {
+        title: "Capital Across the Asian Corridor.",
+        body: "The liquidity map of 2026: how sovereign funds, family offices, growth capital, and crossovers move between China, Singapore, the Gulf, Japan, and Korea. What kinds of founders are being funded right now — at what stage, on what terms, by whom — before you go back to your pipeline."
+      },
+      {
+        title: "Founders × Investors matchmaking.",
+        body: "A working break in the Founders' Lounge: matchmaking between founders and investors, industry tour preview, and sponsor lounges open — turning the morning framing into live connections before the closing arc."
+      },
+      {
+        title: "The Supply-Chain Playbook.",
+        body: "From Shenzhen to 60+ countries — a replicable sequence. The export playbook most decks skip: localisation, certification across CE / FCC / SIRIM / GCC, channel architecture, pricing, and after-sales — how \"made in China\" becomes used everywhere."
+      },
+      {
+        title: "Betting on Asia — An Investor's View of 2030.",
+        body: "Three tracks most likely to produce a hundred-billion-dollar Asian company — not AGI slogans, not scaling laws alone. A cross-border investor maps the most asymmetric opportunities across the corridor and the role China, Singapore, India, and the Gulf each play in each track."
+      },
+      {
+        title: "Just GO. — The Asian Decade Starts Here.",
+        body: "Host closing: why the next chapter is being built across the corridor — not in one city alone — and what this community owes the next decade. A final call to the room before evening programming."
+      }
+    ]
+  }
+];
+
+function renderJuneAgenda() {
+  const contentEl = document.getElementById("agenda-content");
+  contentEl.innerHTML = juneSingaporeAgenda.map(section => {
+    const blocks = section.entries.map((e) => {
+      const paras = String(e.body).split(/\n\n+/).map((t) => `<p>${t}</p>`).join("");
+      return `<div class="agenda-entry"><h4 class="agenda-entry-title">${e.title}</h4><div class="agenda-entry-body">${paras}</div></div>`;
+    }).join("");
+    return `<article class="session"><h3>${section.title}</h3><div class="session-entries">${blocks}</div></article>`;
+  }).join("");
+}
+
+function renderJuneSpeakers() {
+  document.getElementById("speakers-content").innerHTML =
+    `<div class="coming">Speaker lineup for this city is being finalized. Please check back soon — or follow updates on the main <a href="/speakers">Speakers</a> page.</div>`;
+}
+
+renderJuneAgenda();
+renderJuneSpeakers();
+
+
+document.getElementById("speakers-content").addEventListener("click", (e) => {
+  const tab = e.target.closest(".sp-tab");
+  if (!tab || tab.hidden) return;
+  const wrap = tab.closest(".sp-body");
+  if (!wrap) return;
+  const inner = wrap.querySelector(".sp-body-inner");
+  if (!inner) return;
+  const expanded = tab.getAttribute("aria-expanded") === "true";
+  if (expanded) {
+    inner.classList.add("is-collapsed");
+    tab.setAttribute("aria-expanded", "false");
+    tab.setAttribute("aria-label", "Expand bio");
+  } else {
+    inner.classList.remove("is-collapsed");
+    tab.setAttribute("aria-expanded", "true");
+    tab.setAttribute("aria-label", "Collapse bio");
+  }
+});
+
+const DEFAULT_SUBMIT_HINT = "Attendance to the conference is free, while the tour requires a fee. All applications are subject to organizer approval. Please check your email after submitting the form.";
+
+const cityInput = document.getElementById("city-input");
+const form = document.getElementById("attend-form");
+const submitHint = document.getElementById("submit-hint");
+const submitButton = form.querySelector("button[type='submit']");
+const API_BASE = window.GOSUMMIT_API_BASE || "https://gosummit-production.up.railway.app";
+const successModal = document.getElementById("success-modal");
+const successMessageEl = document.getElementById("success-message");
+const successOkBtn = document.getElementById("success-ok");
+
+function setHint(text, type = "") {
+  submitHint.textContent = text;
+  submitHint.classList.remove("success", "error");
+  if (type) submitHint.classList.add(type);
+}
+
+function showSuccessModal(message) {
+  successMessageEl.textContent = message;
+  successModal.classList.add("show");
+  successOkBtn.focus();
+}
+
+function closeSuccessModal() {
+  successModal.classList.remove("show");
+}
+
+successOkBtn.addEventListener("click", closeSuccessModal);
+successModal.addEventListener("click", (e) => {
+  if (e.target === successModal) closeSuccessModal();
+});
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const fd = new FormData(form);
+  const city = String(fd.get("city") || "");
+  const payload = {
+    city,
+    name: String(fd.get("name") || "").trim(),
+    title: String(fd.get("title") || "").trim(),
+    company: String(fd.get("company") || "").trim(),
+    email: String(fd.get("email") || "").trim(),
+    companyType: String(fd.get("companyType") || "").trim()
+  };
+
+  if (API_BASE.includes("YOUR-RAILWAY-SERVICE")) {
+    setHint("Backend is not configured yet. Set window.GOSUMMIT_API_BASE to your Railway API URL.", "error");
+    return;
+  }
+
+  submitButton.disabled = true;
+  submitButton.textContent = "Submitting...";
+  setHint("Submitting your registration...");
+
+  try {
+    const resp = await fetch(API_BASE + "/api/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    const data = await resp.json();
+    if (!resp.ok || !data.ok) {
+      throw new Error(data.message || "Submission failed.");
+    }
+
+    const successMessage = "Your application for June 2026 has been submitted. " + DEFAULT_SUBMIT_HINT;
+    showSuccessModal(successMessage);
+    setHint(DEFAULT_SUBMIT_HINT);
+    form.reset();
+    cityInput.value = city;
+  } catch (err) {
+    setHint("Submission failed. Please try again in a minute or contact monica@agivilla.com.", "error");
+  } finally {
+    submitButton.disabled = false;
+    submitButton.textContent = "SUBMIT";
+  }
+});
+</script>
+</body>
+</html>
