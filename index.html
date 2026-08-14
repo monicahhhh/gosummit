@@ -10,8 +10,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --orange:#FF5C00; --blue:#2B7EFF; --green:#00B85C; --yellow:#FFB300;
-    --red:#FF5C00; --silver:#C5C5C8;
+    --orange:#FF6A00; --blue:#2B7EFF; --green:#00B85C; --yellow:#FF6A00;
+    --red:#FF6A00; --silver:#C5C5C8;
     --bg:#000; --bg-2:#0a0a0a; --fg:#f5f5f7; --fg-dim:#a1a1a6; --fg-dimmer:#6e6e73;
     --line:rgba(255,255,255,0.08); --line-2:rgba(255,255,255,0.14); --max:1200px;
   }
@@ -28,6 +28,7 @@
   ::selection{background:#fff;color:#000}
 
   .brand-logo{height:56px;width:auto;display:block}
+  .foot-brand .brand-logo{height:72px}
 
   .nav{
     position:fixed;inset:0 0 auto 0;z-index:50;
@@ -57,10 +58,9 @@
   .hero-bg::before{
     content:"";position:absolute;inset:-20% -10%;
     background:
-      radial-gradient(50% 48% at 32% 38%, rgba(43,126,255,0.28), transparent 62%),
-      radial-gradient(42% 42% at 68% 34%, rgba(255,179,0,0.20), transparent 60%),
-      radial-gradient(40% 40% at 58% 72%, rgba(0,184,92,0.16), transparent 62%),
-      radial-gradient(36% 36% at 78% 70%, rgba(255,92,0,0.14), transparent 65%);
+      radial-gradient(55% 50% at 48% 40%, rgba(255,106,0,0.32), transparent 62%),
+      radial-gradient(40% 42% at 72% 58%, rgba(255,106,0,0.14), transparent 65%),
+      radial-gradient(36% 36% at 28% 70%, rgba(255,106,0,0.10), transparent 65%);
     filter:blur(40px);animation:drift 20s ease-in-out infinite alternate;
   }
   .hero-bg::after{
@@ -78,7 +78,7 @@
     font-size:12px;letter-spacing:.18em;text-transform:uppercase;
     color:var(--fg-dim);background:rgba(255,255,255,0.03);margin-bottom:28px;
   }
-  .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--green);box-shadow:0 0 12px var(--green);animation:pulse 2s ease-in-out infinite}
+  .eyebrow-dot{width:6px;height:6px;border-radius:50%;background:var(--orange);box-shadow:0 0 12px var(--orange);animation:pulse 2s ease-in-out infinite}
   @keyframes pulse{0%,100%{opacity:.5}50%{opacity:1}}
   .hero h1{
     font-size:clamp(44px, 8.4vw, 108px);line-height:.98;font-weight:800;letter-spacing:-0.045em;
@@ -92,10 +92,9 @@
     background:linear-gradient(180deg,#f2f2f4 0%,#c5c5c8 45%,#8d8d92 100%);
     -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
   }
+  .c-orange{color:var(--orange);-webkit-text-fill-color:var(--orange)}
   .c-dot{color:#fff;-webkit-text-fill-color:#fff}
-  .hero h1 .c-blue{text-shadow:0 0 42px rgba(43,126,255,.45)}
-  .hero h1 .c-yellow{text-shadow:0 0 42px rgba(255,179,0,.38)}
-  .hero h1 .c-green{text-shadow:0 0 42px rgba(0,184,92,.40)}
+  .hero h1 .c-orange{text-shadow:0 0 48px rgba(255,106,0,.55)}
   .hero p.sub{font-size:clamp(17px,1.6vw,22px);color:var(--fg-dim);max-width:720px;margin:0 auto 44px;line-height:1.55}
   .cta-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;position:relative;z-index:2}
   .btn{
@@ -103,7 +102,7 @@
     font-size:15px;font-weight:500;transition:transform .25s ease, background .25s ease, box-shadow .25s ease;
   }
   .btn-primary{background:#fff;color:#000}
-  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(255,255,255,.2)}
+  .btn-primary:hover{transform:translateY(-2px);background:var(--orange);border-color:var(--orange);box-shadow:0 10px 32px rgba(255,106,0,.28)}
   .btn-ghost{background:rgba(255,255,255,0.06);color:#fff;border:1px solid var(--line-2)}
   .btn-ghost:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px)}
   .btn svg{width:16px;height:16px}
@@ -124,7 +123,7 @@
   .marquee-wrap::after{right:0;background:linear-gradient(-90deg,#000,transparent)}
   .marquee{display:flex;gap:40px;animation:scroll 36s linear infinite;width:max-content;align-items:center}
   .marquee span{color:var(--fg-dim);font-size:14px;letter-spacing:.12em;white-space:nowrap;text-transform:uppercase}
-  .marquee b{color:#fff;font-weight:600;letter-spacing:.04em}
+  .marquee b{color:var(--orange);font-weight:600;letter-spacing:.04em}
   .dot{width:5px;height:5px;border-radius:50%;flex:0 0 auto}
   .dot.d-r{background:var(--red);box-shadow:0 0 8px var(--red)}
   .dot.d-b{background:var(--blue);box-shadow:0 0 8px var(--blue)}
@@ -166,7 +165,7 @@
     display:flex;flex-direction:column;transition:transform .3s ease, border-color .3s ease;
   }
   .stop:hover{transform:translateY(-4px);border-color:var(--line-2)}
-  .stop-date{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--fg-dimmer);margin-bottom:18px;font-weight:500}
+  .stop-date{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);margin-bottom:18px;font-weight:500}
   .stop h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin-bottom:12px}
   .stop p{color:var(--fg-dim);font-size:14px;line-height:1.55;margin-top:auto}
   .stop:nth-child(1){border-top:3px solid var(--red)}
@@ -264,9 +263,14 @@
   .bridge-card p{color:var(--fg-dim);font-size:14px;line-height:1.6}
   .team-mini{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:28px;position:relative;z-index:1}
   .person{border:1px solid var(--line);border-radius:18px;padding:22px 22px 24px;background:rgba(255,255,255,.02)}
-  .person .role{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);font-weight:600}
+  .person .role{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);font-weight:600}
   .person h3{font-size:22px;margin:8px 0 8px;letter-spacing:-.02em}
   .person p{color:var(--fg-dim);font-size:14px;line-height:1.6}
+  .person-link{
+    display:inline-flex;margin-top:14px;font-size:13px;color:var(--fg-dim);
+    border-bottom:1px solid var(--line-2);padding-bottom:2px;transition:color .2s,border-color .2s;
+  }
+  .person-link:hover{color:#fff;border-color:#fff}
   @media(max-width:720px){
     .villa{padding:32px 22px}
     .villa-top,.bridge,.team-mini{grid-template-columns:1fr}
@@ -294,7 +298,6 @@
 
   footer{border-top:1px solid var(--line);padding:60px 24px 40px}
   .foot-wrap{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px}
-  .foot-brand .brand-logo{height:72px}
   .foot-brand p{color:var(--fg-dim);font-size:13.5px;line-height:1.6;margin-top:16px;max-width:320px}
   .foot-col h5{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg-dimmer);margin-bottom:16px;font-weight:500}
   .foot-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
@@ -338,8 +341,8 @@
   <div class="wrap" style="position:relative;z-index:2">
     <div class="eyebrow reveal"><span class="eyebrow-dot"></span><span>2026 World Tour · 6 Stops</span></div>
     <h1 class="reveal d1">
-      <span class="c-blue">GO</span> <span class="c-yellow">SUMMIT</span><span class="c-dot">.</span><br/>
-      <span class="c-silver">Just</span> <span class="c-green">GO</span><span class="c-silver">.</span>
+      <span class="c-orange">GO SUMMIT.</span><br/>
+      <span class="c-silver">Just</span> <span class="c-orange">GO</span><span class="c-silver">.</span>
     </h1>
     <p class="sub reveal d2">The flagship world tour where China’s AI founders and the world’s capital, corporates, and operators meet in the same room — and ship across borders.</p>
     <div class="cta-row reveal d3">
@@ -373,7 +376,7 @@
 <section id="tour">
   <div class="wrap">
     <div class="label reveal">GO SUMMIT 2026</div>
-    <h2 class="title reveal d1">Six stops.<br/>One <span class="c-yellow">world tour</span>.</h2>
+    <h2 class="title reveal d1">Six stops.<br/>One <span class="c-orange">world tour</span>.</h2>
     <p class="lede reveal d2">Flagship founder gatherings — keynotes, roundtables, showcases, and the rooms where the two ecosystems actually meet.</p>
 
     <div class="tour">
@@ -437,7 +440,7 @@
 <section style="padding-top:0">
   <div class="wrap">
     <div class="label reveal">On the ground</div>
-    <h2 class="title reveal d1">Moments from the <span class="c-blue">tour</span>.</h2>
+    <h2 class="title reveal d1">Moments from the <span class="c-orange">tour</span>.</h2>
     <div class="photos reveal d2">
       <img src="assets/photos/1.png" alt="GO SUMMIT" />
       <img src="assets/photos/2.png" alt="GO SUMMIT" />
@@ -454,7 +457,7 @@
 <section id="why">
   <div class="wrap">
     <div class="label reveal">Inside the room</div>
-    <h2 class="title reveal d1">High-density founder access —<br/>built for <span class="c-green">going global</span>.</h2>
+    <h2 class="title reveal d1">High-density founder access —<br/>built for <span class="c-orange">going global</span>.</h2>
     <p class="lede reveal d2">Each stop combines a conference day that says what’s next with the conversations that move companies across oceans. No lanyards-as-vanity. Real operators, both sides of the table.</p>
 
     <div class="format">
@@ -503,7 +506,7 @@
 <section id="voices">
   <div class="wrap">
     <div class="label reveal">From the room</div>
-    <h2 class="title reveal d1">Voices from founders<br/>who <span class="c-blue">came</span>.</h2>
+    <h2 class="title reveal d1">Voices from founders<br/>who <span class="c-orange">came</span>.</h2>
     <div class="v-grid">
       <article class="v reveal">
         <q>GO SUMMIT delivered outstanding content from macro frameworks to hands-on execution in AI + globalization. The insight density was high, and I met many impressive people.</q>
@@ -524,7 +527,7 @@
 <section id="partner">
   <div class="wrap">
     <div class="label reveal">Partner at GO SUMMIT</div>
-    <h2 class="title reveal d1">Activate at the flagship —<br/>then take it <span class="c-yellow">city to city</span>.</h2>
+    <h2 class="title reveal d1">Activate at the flagship —<br/>then take it <span class="c-orange">city to city</span>.</h2>
     <p class="lede reveal d2">Packages are designed to be reusable across GO SUMMIT cities and editions. Start with the room; add amplification when it fits.</p>
 
     <div class="p-mods">
@@ -604,6 +607,7 @@
           <div class="role">Founder · curates GO SUMMIT</div>
           <h3>Monica Wang</h3>
           <p>18 years across the innovation value chain · 60 countries · writes, podcasts, and speaks in English and Mandarin.</p>
+          <a class="person-link" href="https://chinabymonica.com" target="_blank" rel="noopener">chinabymonica.com →</a>
         </div>
         <div class="person">
           <div class="role">Co-founder</div>
@@ -617,7 +621,7 @@
 
 <section class="cta-section" id="apply">
   <div class="cta-card reveal">
-    <h2><span class="c-silver">Just</span> <span class="c-green">GO</span><span class="c-silver">.</span></h2>
+    <h2><span class="c-silver">Just</span> <span class="c-orange">GO</span><span class="c-silver">.</span></h2>
     <p>Applications open for delegates, speakers, and partners of the 2026 world tour. Start with the city — then the room.</p>
     <div class="cta-row">
       <a href="mailto:monica@agivilla.com?subject=GO%20SUMMIT%20—%20Attend" class="btn btn-primary">
