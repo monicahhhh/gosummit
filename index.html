@@ -7,7 +7,7 @@
 <meta name="description" content="GO SUMMIT is AGI Villa’s flagship world tour — founders, investors, and operators meeting face to face across Shanghai, Shenzhen, Rio, Singapore, and WAIC." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --red:#EA4335; --blue:#4285F4; --green:#34A853; --yellow:#FBBC05;
@@ -18,7 +18,7 @@
   html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
   body{
     background:var(--bg);color:var(--fg);
-    font-family:'Inter','Noto Sans SC','SF Pro Display',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+    font-family:'Inter','SF Pro Display',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
     -webkit-font-smoothing:antialiased;overflow-x:hidden;letter-spacing:-0.01em;
   }
   img{max-width:100%;display:block}
@@ -49,10 +49,6 @@
   .nav-links{display:flex;gap:26px;color:var(--fg-dim)}
   .nav-links a{transition:color .2s}
   .nav-links a:hover{color:var(--fg)}
-  .nav-right{display:flex;align-items:center;gap:14px}
-  .lang{display:flex;gap:4px;color:var(--fg-dim);font-size:13px}
-  .lang button{padding:4px 10px;border-radius:6px;transition:all .2s}
-  .lang button[aria-current="true"]{background:#fff;color:#000}
   .nav-cta{
     padding:8px 16px;border-radius:999px;background:#fff;color:#000;font-weight:500;
     transition:transform .2s ease, box-shadow .2s ease;
@@ -326,37 +322,31 @@
       <span class="wordmark"><span class="go">GO</span><span class="summit">SUMMIT</span></span>
     </a>
     <div class="nav-links">
-      <a href="#tour" data-i18n="nav.tour">Tour</a>
-      <a href="#why" data-i18n="nav.why">Why GO</a>
-      <a href="#voices" data-i18n="nav.voices">Voices</a>
-      <a href="#partner" data-i18n="nav.partner">Partner</a>
+      <a href="#tour">Tour</a>
+      <a href="#why">Why GO</a>
+      <a href="#voices">Voices</a>
+      <a href="#partner">Partner</a>
       <a href="#villa">AGI Villa</a>
     </div>
-    <div class="nav-right">
-      <div class="lang">
-        <button type="button" data-lang="en" aria-current="true">EN</button>
-        <button type="button" data-lang="zh">中</button>
-      </div>
-      <a href="mailto:hi@gosummit.xyz?subject=GO%20SUMMIT%20—%20Attend" class="nav-cta" data-i18n="nav.cta">Apply →</a>
-    </div>
+    <a href="mailto:hi@gosummit.xyz?subject=GO%20SUMMIT%20—%20Attend" class="nav-cta">Apply →</a>
   </div>
 </nav>
 
 <header class="hero" id="top">
   <div class="hero-bg"></div>
   <div class="wrap" style="position:relative;z-index:2">
-    <div class="eyebrow reveal"><span class="eyebrow-dot"></span><span data-i18n="hero.kicker">2026 World Tour · 5 Cities</span></div>
+    <div class="eyebrow reveal"><span class="eyebrow-dot"></span><span>2026 World Tour · 5 Cities</span></div>
     <h1 class="reveal d1">
       <span class="c-blue">GO</span> <span class="c-yellow">SUMMIT</span>.<br/>
       Just <span class="c-green">GO</span>.
     </h1>
-    <p class="sub reveal d2" data-i18n="hero.sub">The flagship world tour where China’s AI founders and the world’s capital, corporates, and operators meet in the same room — and ship across borders.</p>
+    <p class="sub reveal d2">The flagship world tour where China’s AI founders and the world’s capital, corporates, and operators meet in the same room — and ship across borders.</p>
     <div class="cta-row reveal d3">
       <a href="mailto:hi@gosummit.xyz?subject=GO%20SUMMIT%20—%20Attend" class="btn btn-primary">
-        <span data-i18n="cta.attend">Apply to attend</span>
+        <span>Apply to attend</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
-      <a href="#tour" class="btn btn-ghost" data-i18n="cta.dates">See 2026 dates</a>
+      <a href="#tour" class="btn btn-ghost">See 2026 dates</a>
     </div>
   </div>
   <div class="scroll-ind">SCROLL</div>
@@ -379,20 +369,20 @@
 
 <section id="tour">
   <div class="wrap">
-    <div class="label reveal" data-i18n="tour.label">GO SUMMIT 2026</div>
-    <h2 class="title reveal d1" data-i18n="tour.title">Five cities.<br/>One <span class="c-yellow">world tour</span>.</h2>
-    <p class="lede reveal d2" data-i18n="tour.lede">Flagship founder gatherings — keynotes, roundtables, showcases, and the rooms where the two ecosystems actually meet.</p>
+    <div class="label reveal">GO SUMMIT 2026</div>
+    <h2 class="title reveal d1">Five cities.<br/>One <span class="c-yellow">world tour</span>.</h2>
+    <p class="lede reveal d2">Flagship founder gatherings — keynotes, roundtables, showcases, and the rooms where the two ecosystems actually meet.</p>
 
     <div class="tour">
       <article class="stop reveal">
         <div class="stop-date">2026.4.18–19</div>
         <h3>Shanghai</h3>
-        <p data-i18n="stop.sha">Connecting Global Innovators, Building the Future</p>
+        <p>Connecting Global Innovators, Building the Future</p>
       </article>
       <article class="stop reveal d1">
         <div class="stop-date">2026.5.23</div>
         <h3>Shenzhen</h3>
-        <p data-i18n="stop.sz">From Shenzhen to the World</p>
+        <p>From Shenzhen to the World</p>
       </article>
       <article class="stop reveal d2">
         <div class="stop-date">2026.6.8</div>
@@ -402,35 +392,35 @@
       <article class="stop reveal d3">
         <div class="stop-date">2026.6.13</div>
         <h3>Singapore</h3>
-        <p data-i18n="stop.sg">Born Global, Just GO</p>
+        <p>Born Global, Just GO</p>
       </article>
       <article class="stop reveal">
         <div class="stop-date">2026.7.17</div>
         <h3>WAIC · Shanghai</h3>
-        <p data-i18n="stop.waic">AI for All, Tech for All</p>
+        <p>AI for All, Tech for All</p>
       </article>
     </div>
 
     <div class="stats">
       <div class="stat s-red reveal">
         <div class="stat-num">5</div>
-        <div class="stat-lbl" data-i18n="stat.1l">Summit stops</div>
-        <div class="stat-desc" data-i18n="stat.1d">Shanghai, Shenzhen, Rio, Singapore, WAIC</div>
+        <div class="stat-lbl">Summit stops</div>
+        <div class="stat-desc">Shanghai, Shenzhen, Rio, Singapore, WAIC</div>
       </div>
       <div class="stat s-blue reveal d1">
         <div class="stat-num" data-count="3000">0<sup>+</sup></div>
-        <div class="stat-lbl" data-i18n="stat.2l">Founders in the room</div>
-        <div class="stat-desc" data-i18n="stat.2d">From AGI Villa’s invitation-only community</div>
+        <div class="stat-lbl">Founders in the room</div>
+        <div class="stat-desc">From AGI Villa’s invitation-only community</div>
       </div>
       <div class="stat s-green reveal d2">
         <div class="stat-num">CN + EN</div>
-        <div class="stat-lbl" data-i18n="stat.3l">Bilingual rooms</div>
-        <div class="stat-desc" data-i18n="stat.3d">Operators who actually ship, in both languages</div>
+        <div class="stat-lbl">Bilingual rooms</div>
+        <div class="stat-desc">Operators who actually ship, in both languages</div>
       </div>
       <div class="stat s-yellow reveal d3">
         <div class="stat-num">↔</div>
-        <div class="stat-lbl" data-i18n="stat.4l">Both directions</div>
-        <div class="stat-desc" data-i18n="stat.4d">China → world, and world → China</div>
+        <div class="stat-lbl">Both directions</div>
+        <div class="stat-desc">China → world, and world → China</div>
       </div>
     </div>
   </div>
@@ -438,8 +428,8 @@
 
 <section style="padding-top:0">
   <div class="wrap">
-    <div class="label reveal" data-i18n="photo.label">On the ground</div>
-    <h2 class="title reveal d1" data-i18n="photo.title">Moments from the <span class="c-blue">tour</span>.</h2>
+    <div class="label reveal">On the ground</div>
+    <h2 class="title reveal d1">Moments from the <span class="c-blue">tour</span>.</h2>
     <div class="photos reveal d2">
       <img src="assets/photos/1.png" alt="GO SUMMIT" />
       <img src="assets/photos/2.png" alt="GO SUMMIT" />
@@ -455,48 +445,48 @@
 
 <section id="why">
   <div class="wrap">
-    <div class="label reveal" data-i18n="why.label">Inside the room</div>
-    <h2 class="title reveal d1" data-i18n="why.title">High-density founder access —<br/>built for <span class="c-green">going global</span>.</h2>
-    <p class="lede reveal d2" data-i18n="why.lede">Each stop combines a conference day that says what’s next with the conversations that move companies across oceans. No lanyards-as-vanity. Real operators, both sides of the table.</p>
+    <div class="label reveal">Inside the room</div>
+    <h2 class="title reveal d1">High-density founder access —<br/>built for <span class="c-green">going global</span>.</h2>
+    <p class="lede reveal d2">Each stop combines a conference day that says what’s next with the conversations that move companies across oceans. No lanyards-as-vanity. Real operators, both sides of the table.</p>
 
     <div class="format">
       <article class="fmt reveal">
         <div class="fmt-num">01</div>
-        <h3 data-i18n="fmt.1t">Keynotes</h3>
-        <p data-i18n="fmt.1b">Founders and operators on the record — state of going global, AI verticals, and what actually ships.</p>
+        <h3>Keynotes</h3>
+        <p>Founders and operators on the record — state of going global, AI verticals, and what actually ships.</p>
       </article>
       <article class="fmt reveal d1">
         <div class="fmt-num">02</div>
-        <h3 data-i18n="fmt.2t">Roundtables</h3>
-        <p data-i18n="fmt.2b">Curated seats for deeper conversation — market entry, capital, distribution, and product.</p>
+        <h3>Roundtables</h3>
+        <p>Curated seats for deeper conversation — market entry, capital, distribution, and product.</p>
       </article>
       <article class="fmt reveal d2">
         <div class="fmt-num">03</div>
-        <h3 data-i18n="fmt.3t">Showcases</h3>
-        <p data-i18n="fmt.3b">Product discovery in front of an innovation-driven room — demos, not decks for their own sake.</p>
+        <h3>Showcases</h3>
+        <p>Product discovery in front of an innovation-driven room — demos, not decks for their own sake.</p>
       </article>
       <article class="fmt reveal d3">
         <div class="fmt-num">04</div>
-        <h3 data-i18n="fmt.4t">The room after</h3>
-        <p data-i18n="fmt.4b">Networking, closed-door dinners, and the introductions that turn a summit into a deal.</p>
+        <h3>The room after</h3>
+        <p>Networking, closed-door dinners, and the introductions that turn a summit into a deal.</p>
       </article>
     </div>
 
     <div class="why">
       <article class="why-card reveal">
-        <div class="why-kicker" data-i18n="for.1k">For founders</div>
-        <h3 data-i18n="for.1t">Land the next market.</h3>
-        <p data-i18n="for.1b">Playbooks, partners, and capital from people who have already crossed the border — LATAM, Middle East, Southeast Asia, Central Asia, North America, and China.</p>
+        <div class="why-kicker">For founders</div>
+        <h3>Land the next market.</h3>
+        <p>Playbooks, partners, and capital from people who have already crossed the border — LATAM, Middle East, Southeast Asia, Central Asia, North America, and China.</p>
       </article>
       <article class="why-card reveal d1">
-        <div class="why-kicker" data-i18n="for.2k">For investors & corporates</div>
-        <h3 data-i18n="for.2t">Meet the China side itself.</h3>
-        <p data-i18n="for.2b">Not a filtered narrative. Direct access to the founders, category champions, and operators building the next wave of AI and deep tech.</p>
+        <div class="why-kicker">For investors & corporates</div>
+        <h3>Meet the China side itself.</h3>
+        <p>Not a filtered narrative. Direct access to the founders, category champions, and operators building the next wave of AI and deep tech.</p>
       </article>
       <article class="why-card reveal d2">
-        <div class="why-kicker" data-i18n="for.3k">For partners</div>
-        <h3 data-i18n="for.3t">Be in the room that travels.</h3>
-        <p data-i18n="for.3b">Brand, product, and thought leadership in front of globally minded founders — reusable across GO SUMMIT cities and editions.</p>
+        <div class="why-kicker">For partners</div>
+        <h3>Be in the room that travels.</h3>
+        <p>Brand, product, and thought leadership in front of globally minded founders — reusable across GO SUMMIT cities and editions.</p>
       </article>
     </div>
   </div>
@@ -504,8 +494,8 @@
 
 <section id="voices">
   <div class="wrap">
-    <div class="label reveal" data-i18n="v.label">From the room</div>
-    <h2 class="title reveal d1" data-i18n="v.title">Voices from founders<br/>who <span class="c-blue">came</span>.</h2>
+    <div class="label reveal">From the room</div>
+    <h2 class="title reveal d1">Voices from founders<br/>who <span class="c-blue">came</span>.</h2>
     <div class="v-grid">
       <article class="v reveal">
         <q>GO SUMMIT delivered outstanding content from macro frameworks to hands-on execution in AI + globalization. The insight density was high, and I met many impressive people.</q>
@@ -525,37 +515,37 @@
 
 <section id="partner">
   <div class="wrap">
-    <div class="label reveal" data-i18n="par.label">Partner at GO SUMMIT</div>
-    <h2 class="title reveal d1" data-i18n="par.title">Activate at the flagship —<br/>then take it <span class="c-yellow">city to city</span>.</h2>
-    <p class="lede reveal d2" data-i18n="par.lede">Packages are designed to be reusable across GO SUMMIT cities and editions. Start with the room; add amplification when it fits.</p>
+    <div class="label reveal">Partner at GO SUMMIT</div>
+    <h2 class="title reveal d1">Activate at the flagship —<br/>then take it <span class="c-yellow">city to city</span>.</h2>
+    <p class="lede reveal d2">Packages are designed to be reusable across GO SUMMIT cities and editions. Start with the room; add amplification when it fits.</p>
 
     <div class="p-mods">
       <article class="pmod reveal">
-        <div class="label" style="margin-bottom:8px" data-i18n="par.what">What partners get</div>
-        <h3 data-i18n="par.h">High-density access</h3>
-        <p data-i18n="par.p">Be present in front of globally minded founders, investors, and operators. Own a topic. Showcase a product. Leave with qualified relationships.</p>
+        <div class="label" style="margin-bottom:8px">What partners get</div>
+        <h3>High-density access</h3>
+        <p>Be present in front of globally minded founders, investors, and operators. Own a topic. Showcase a product. Leave with qualified relationships.</p>
         <div class="chips">
-          <span data-i18n="chip.1">Keynote</span>
-          <span data-i18n="chip.2">Exhibition</span>
-          <span data-i18n="chip.3">Roundtable</span>
-          <span data-i18n="chip.4">Lunch / tea break</span>
-          <span data-i18n="chip.5">Closed-door dinner</span>
-          <span data-i18n="chip.6">Gifts & badges</span>
+          <span>Keynote</span>
+          <span>Exhibition</span>
+          <span>Roundtable</span>
+          <span>Lunch / tea break</span>
+          <span>Closed-door dinner</span>
+          <span>Gifts & badges</span>
         </div>
       </article>
       <article class="pmod reveal d1">
         <ul class="achieve">
-          <li><b data-i18n="ach.1t">Brand visibility</b><span data-i18n="ach.1b">In front of founders who are actually going global</span></li>
-          <li><b data-i18n="ach.2t">Thought leadership</b><span data-i18n="ach.2b">Keynotes, panels, curated conversations</span></li>
-          <li><b data-i18n="ach.3t">Product discovery</b><span data-i18n="ach.3b">Showcase solutions to an innovation-driven audience</span></li>
-          <li><b data-i18n="ach.4t">Qualified networking</b><span data-i18n="ach.4b">Passes and curated access, not a spray of badges</span></li>
+          <li><b>Brand visibility</b><span>In front of founders who are actually going global</span></li>
+          <li><b>Thought leadership</b><span>Keynotes, panels, curated conversations</span></li>
+          <li><b>Product discovery</b><span>Showcase solutions to an innovation-driven audience</span></li>
+          <li><b>Qualified networking</b><span>Passes and curated access, not a spray of badges</span></li>
         </ul>
       </article>
     </div>
 
     <div class="cta-row reveal" style="justify-content:flex-start;margin-top:36px">
       <a href="mailto:hi@gosummit.xyz?subject=GO%20SUMMIT%20—%20Partner" class="btn btn-primary">
-        <span data-i18n="par.cta">Partner with GO SUMMIT</span>
+        <span>Partner with GO SUMMIT</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -579,38 +569,38 @@
 
 <section id="villa">
   <div class="wrap">
-    <div class="label reveal" data-i18n="villa.label">Organized by</div>
+    <div class="label reveal">Organized by</div>
     <div class="villa reveal">
       <div class="villa-top">
         <div>
           <img class="org-logo" src="assets/agivilla-white-logo.png" alt="AGI Villa" />
-          <h2 class="title" style="font-size:clamp(26px,3.4vw,42px)" data-i18n="villa.title">The two-way bridge behind the tour.</h2>
-          <p class="lede" style="margin-top:16px" data-i18n="villa.lede">GO SUMMIT is the flagship of AGI Villa — a 3,000-strong, invitation-only community connecting China’s next generation of AI companies with the world, in both directions.</p>
+          <h2 class="title" style="font-size:clamp(26px,3.4vw,42px)">The two-way bridge behind the tour.</h2>
+          <p class="lede" style="margin-top:16px">GO SUMMIT is the flagship of AGI Villa — a 3,000-strong, invitation-only community connecting China’s next generation of AI companies with the world, in both directions.</p>
         </div>
         <a href="https://agivilla.com" target="_blank" rel="noopener" class="btn btn-ghost" style="flex:0 0 auto">agivilla.com →</a>
       </div>
       <div class="bridge">
         <div class="bridge-card china">
           <div class="dir">China → World</div>
-          <h3 data-i18n="br.c.t">Chinese founders, landing globally.</h3>
-          <p data-i18n="br.c.b">Direct access to investors, distributors, corporates, and local operators — not a secondhand story about China.</p>
+          <h3>Chinese founders, landing globally.</h3>
+          <p>Direct access to investors, distributors, corporates, and local operators — not a secondhand story about China.</p>
         </div>
         <div class="bridge-card world">
           <div class="dir">World → China</div>
-          <h3 data-i18n="br.w.t">Global players, plugged into China.</h3>
-          <p data-i18n="br.w.b">Markets, supply chains, technology, and the community that already ships at scale.</p>
+          <h3>Global players, plugged into China.</h3>
+          <p>Markets, supply chains, technology, and the community that already ships at scale.</p>
         </div>
       </div>
       <div class="team-mini">
         <div class="person">
-          <div class="role" data-i18n="tm.m.r">Founder · curates GO SUMMIT</div>
+          <div class="role">Founder · curates GO SUMMIT</div>
           <h3>Monica Wang</h3>
-          <p data-i18n="tm.m.b">18 years across the innovation value chain · 60 countries · writes, podcasts, and speaks in English and Mandarin.</p>
+          <p>18 years across the innovation value chain · 60 countries · writes, podcasts, and speaks in English and Mandarin.</p>
         </div>
         <div class="person">
-          <div class="role" data-i18n="tm.d.r">Co-founder</div>
+          <div class="role">Co-founder</div>
           <h3>Darren Su</h3>
-          <p data-i18n="tm.d.b">Engineer-turned-community builder. Datawhale founding member. AI infrastructure, 0→1 products, and city ecosystems.</p>
+          <p>Engineer-turned-community builder. Datawhale founding member. AI infrastructure, 0→1 products, and city ecosystems.</p>
         </div>
       </div>
     </div>
@@ -620,13 +610,13 @@
 <section class="cta-section" id="apply">
   <div class="cta-card reveal">
     <h2>Just <span class="c-green">GO</span>.</h2>
-    <p data-i18n="cta.body">Applications open for delegates, speakers, and partners of the 2026 world tour. Start with the city — then the room.</p>
+    <p>Applications open for delegates, speakers, and partners of the 2026 world tour. Start with the city — then the room.</p>
     <div class="cta-row">
       <a href="mailto:hi@gosummit.xyz?subject=GO%20SUMMIT%20—%20Attend" class="btn btn-primary">
-        <span data-i18n="cta.attend">Apply to attend</span>
+        <span>Apply to attend</span>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
       </a>
-      <a href="mailto:hi@gosummit.xyz?subject=GO%20SUMMIT%20—%20Partner" class="btn btn-ghost" data-i18n="cta.partner">Speak &amp; partner</a>
+      <a href="mailto:hi@gosummit.xyz?subject=GO%20SUMMIT%20—%20Partner" class="btn btn-ghost">Speak &amp; partner</a>
     </div>
   </div>
 </section>
@@ -638,15 +628,15 @@
         <span class="brand-mark"></span>
         <span class="wordmark"><span class="go">GO</span><span class="summit">SUMMIT</span></span>
       </a>
-      <p data-i18n="ft.sub">The flagship world tour of AGI Villa. Where innovators meet the world — face to face.</p>
+      <p>The flagship world tour of AGI Villa. Where innovators meet the world — face to face.</p>
       <div class="foot-bar"><span class="b-r"></span><span class="b-b"></span><span class="b-g"></span><span class="b-y"></span></div>
     </div>
     <div class="foot-col">
       <h5>GO SUMMIT</h5>
       <ul>
-        <li><a href="#tour" data-i18n="nav.tour">Tour</a></li>
-        <li><a href="#why" data-i18n="nav.why">Why GO</a></li>
-        <li><a href="#partner" data-i18n="nav.partner">Partner</a></li>
+        <li><a href="#tour">Tour</a></li>
+        <li><a href="#why">Why GO</a></li>
+        <li><a href="#partner">Partner</a></li>
       </ul>
     </div>
     <div class="foot-col">
@@ -657,7 +647,7 @@
       </ul>
     </div>
     <div class="foot-col">
-      <h5 data-i18n="ft.connect">Connect</h5>
+      <h5>Connect</h5>
       <ul>
         <li><a href="mailto:hi@gosummit.xyz">hi@gosummit.xyz</a></li>
         <li><a href="https://chinabymonica.com" target="_blank" rel="noopener">chinabymonica.com</a></li>
@@ -665,112 +655,12 @@
     </div>
   </div>
   <div class="foot-bottom">
-    <div data-i18n="ft.copy">© 2026 GO SUMMIT · AGI Villa. All rights reserved.</div>
+    <div>© 2026 GO SUMMIT · AGI Villa. All rights reserved.</div>
     <div>gosummit.ai</div>
   </div>
 </footer>
 
 <script>
-const I18N = {
-  en: {
-    "nav.tour":"Tour","nav.why":"Why GO","nav.voices":"Voices","nav.partner":"Partner","nav.cta":"Apply →",
-    "hero.kicker":"2026 World Tour · 5 Cities",
-    "hero.sub":"The flagship world tour where China’s AI founders and the world’s capital, corporates, and operators meet in the same room — and ship across borders.",
-    "cta.attend":"Apply to attend","cta.dates":"See 2026 dates","cta.partner":"Speak & partner",
-    "tour.label":"GO SUMMIT 2026","tour.title":"Five cities.<br/>One <span class=\"c-yellow\">world tour</span>.",
-    "tour.lede":"Flagship founder gatherings — keynotes, roundtables, showcases, and the rooms where the two ecosystems actually meet.",
-    "stop.sha":"Connecting Global Innovators, Building the Future","stop.sz":"From Shenzhen to the World","stop.sg":"Born Global, Just GO","stop.waic":"AI for All, Tech for All",
-    "stat.1l":"Summit stops","stat.1d":"Shanghai, Shenzhen, Rio, Singapore, WAIC",
-    "stat.2l":"Founders in the room","stat.2d":"From AGI Villa’s invitation-only community",
-    "stat.3l":"Bilingual rooms","stat.3d":"Operators who actually ship, in both languages",
-    "stat.4l":"Both directions","stat.4d":"China → world, and world → China",
-    "photo.label":"On the ground","photo.title":"Moments from the <span class=\"c-blue\">tour</span>.",
-    "why.label":"Inside the room","why.title":"High-density founder access —<br/>built for <span class=\"c-green\">going global</span>.",
-    "why.lede":"Each stop combines a conference day that says what’s next with the conversations that move companies across oceans. No lanyards-as-vanity. Real operators, both sides of the table.",
-    "fmt.1t":"Keynotes","fmt.1b":"Founders and operators on the record — state of going global, AI verticals, and what actually ships.",
-    "fmt.2t":"Roundtables","fmt.2b":"Curated seats for deeper conversation — market entry, capital, distribution, and product.",
-    "fmt.3t":"Showcases","fmt.3b":"Product discovery in front of an innovation-driven room — demos, not decks for their own sake.",
-    "fmt.4t":"The room after","fmt.4b":"Networking, closed-door dinners, and the introductions that turn a summit into a deal.",
-    "for.1k":"For founders","for.1t":"Land the next market.","for.1b":"Playbooks, partners, and capital from people who have already crossed the border — LATAM, Middle East, Southeast Asia, Central Asia, North America, and China.",
-    "for.2k":"For investors & corporates","for.2t":"Meet the China side itself.","for.2b":"Not a filtered narrative. Direct access to the founders, category champions, and operators building the next wave of AI and deep tech.",
-    "for.3k":"For partners","for.3t":"Be in the room that travels.","for.3b":"Brand, product, and thought leadership in front of globally minded founders — reusable across GO SUMMIT cities and editions.",
-    "v.label":"From the room","v.title":"Voices from founders<br/>who <span class=\"c-blue\">came</span>.",
-    "par.label":"Partner at GO SUMMIT","par.title":"Activate at the flagship —<br/>then take it <span class=\"c-yellow\">city to city</span>.",
-    "par.lede":"Packages are designed to be reusable across GO SUMMIT cities and editions. Start with the room; add amplification when it fits.",
-    "par.what":"What partners get","par.h":"High-density access","par.p":"Be present in front of globally minded founders, investors, and operators. Own a topic. Showcase a product. Leave with qualified relationships.",
-    "chip.1":"Keynote","chip.2":"Exhibition","chip.3":"Roundtable","chip.4":"Lunch / tea break","chip.5":"Closed-door dinner","chip.6":"Gifts & badges",
-    "ach.1t":"Brand visibility","ach.1b":"In front of founders who are actually going global",
-    "ach.2t":"Thought leadership","ach.2b":"Keynotes, panels, curated conversations",
-    "ach.3t":"Product discovery","ach.3b":"Showcase solutions to an innovation-driven audience",
-    "ach.4t":"Qualified networking","ach.4b":"Passes and curated access, not a spray of badges",
-    "par.cta":"Partner with GO SUMMIT",
-    "villa.label":"Organized by","villa.title":"The two-way bridge behind the tour.",
-    "villa.lede":"GO SUMMIT is the flagship of AGI Villa — a 3,000-strong, invitation-only community connecting China’s next generation of AI companies with the world, in both directions.",
-    "br.c.t":"Chinese founders, landing globally.","br.c.b":"Direct access to investors, distributors, corporates, and local operators — not a secondhand story about China.",
-    "br.w.t":"Global players, plugged into China.","br.w.b":"Markets, supply chains, technology, and the community that already ships at scale.",
-    "tm.m.r":"Founder · curates GO SUMMIT","tm.m.b":"18 years across the innovation value chain · 60 countries · writes, podcasts, and speaks in English and Mandarin.",
-    "tm.d.r":"Co-founder","tm.d.b":"Engineer-turned-community builder. Datawhale founding member. AI infrastructure, 0→1 products, and city ecosystems.",
-    "cta.body":"Applications open for delegates, speakers, and partners of the 2026 world tour. Start with the city — then the room.",
-    "ft.sub":"The flagship world tour of AGI Villa. Where innovators meet the world — face to face.",
-    "ft.connect":"Connect","ft.copy":"© 2026 GO SUMMIT · AGI Villa. All rights reserved."
-  },
-  zh: {
-    "nav.tour":"行程","nav.why":"为什么去","nav.voices":"声音","nav.partner":"合作","nav.cta":"申请 →",
-    "hero.kicker":"2026 全球巡回 · 五座城市",
-    "hero.sub":"旗舰世界巡回：中国 AI 创始人与全球资本、企业、操盘手在同一间房间相遇 — 然后跨境出货。",
-    "cta.attend":"申请参会","cta.dates":"查看 2026 日程","cta.partner":"演讲与合作",
-    "tour.label":"GO SUMMIT 2026","tour.title":"五座城市。<br/>一场 <span class=\"c-yellow\">全球巡回</span>。",
-    "tour.lede":"旗舰创始人聚会 — 主题演讲、圆桌、展示，以及两套生态真正相遇的房间。",
-    "stop.sha":"连接全球创新者，共建未来","stop.sz":"从深圳走向世界","stop.sg":"生来全球，Just GO","stop.waic":"AI for All, Tech for All",
-    "stat.1l":"峰会站次","stat.1d":"上海、深圳、里约、新加坡、WAIC",
-    "stat.2l":"在场创始人","stat.2d":"来自 AGI Villa 受邀制社区",
-    "stat.3l":"双语现场","stat.3d":"真正在出货的操盘手，中英双语",
-    "stat.4l":"两个方向","stat.4d":"中国走向世界，世界走进中国",
-    "photo.label":"现场","photo.title":"巡回路上的<span class=\"c-blue\">瞬间</span>。",
-    "why.label":"房间里","why.title":"高密度创始人现场 —<br/>为<span class=\"c-green\">出海</span>而建。",
-    "why.lede":"每一站都是：一天讲清下一步，加上能把公司送过海的对话。没有当装饰的胸牌。桌子两边都是真正的操盘手。",
-    "fmt.1t":"主题演讲","fmt.1b":"创始人与操盘手公开讲 — 出海现状、AI 垂直赛道，以及真正出得去的东西。",
-    "fmt.2t":"圆桌","fmt.2b":"精选座位，更深的对话 — 市场进入、资本、渠道与产品。",
-    "fmt.3t":"展示","fmt.3b":"面对创新驱动的现场做产品发现 — 是 demo，不是为了演示而演示。",
-    "fmt.4t":"会后的房间","fmt.4b":"社交、闭门晚宴，以及把峰会变成交易的引荐。",
-    "for.1k":"给创始人","for.1t":"拿下下一个市场。","for.1b":"已经走过边境的人带来的打法、伙伴与资本 — 拉美、中东、东南亚、中亚、北美，以及中国。",
-    "for.2k":"给投资人与企业","for.2t":"直接见到中国侧。","for.2b":"不是过滤过的叙事。直接对接正在做下一波 AI 与深科技的创始人、品类冠军与操盘手。",
-    "for.3k":"给合作方","for.3t":"出现在会移动的房间里。","for.3b":"在有全球视野的创始人面前做品牌、产品与思想领导力 — 可复用到每一站 GO SUMMIT。",
-    "v.label":"来自现场","v.title":"来过的创始人<br/>怎么<span class=\"c-blue\">说</span>。",
-    "par.label":"在 GO SUMMIT 合作","par.title":"在旗舰场激活 —<br/>再把它带到<span class=\"c-yellow\">下一座城市</span>。",
-    "par.lede":"合作方案按城市和场次可复用。先进入房间，再按需要放大。",
-    "par.what":"合作方可获得","par.h":"高密度接触","par.p":"出现在有全球视野的创始人、投资人与操盘手面前。主导一个议题。展示一个产品。带走合格的关系。",
-    "chip.1":"主题演讲","chip.2":"展位","chip.3":"圆桌","chip.4":"午餐 / 茶歇","chip.5":"闭门晚宴","chip.6":"礼品与胸牌",
-    "ach.1t":"品牌露出","ach.1b":"面对真正在出海的创始人",
-    "ach.2t":"思想领导力","ach.2b":"主题演讲、论坛、精选对话",
-    "ach.3t":"产品发现","ach.3b":"向创新驱动的受众展示方案",
-    "ach.4t":"高质量社交","ach.4b":"通行证与精选对接，不是撒胸牌",
-    "par.cta":"成为 GO SUMMIT 合作方",
-    "villa.label":"主办","villa.title":"巡回背后的双向桥梁。",
-    "villa.lede":"GO SUMMIT 是 AGI Villa 的旗舰 — 一个 3,000 人的受邀制社区，双向连接中国新一代 AI 公司与世界。",
-    "br.c.t":"中国创始人，全球落地。","br.c.b":"直接对接投资人、渠道、企业与本地操盘手 — 不是关于中国的二手故事。",
-    "br.w.t":"全球玩家，接入中国。","br.w.b":"市场、供应链、技术，以及已经在规模出货的社区。",
-    "tm.m.r":"创始人 · 策展 GO SUMMIT","tm.m.b":"18 年深耕创新价值链 · 60 个国家 · 用中英写作、播客与演讲。",
-    "tm.d.r":"联合创始人","tm.d.b":"从工程师走出来的社区建设者。Datawhale 创始成员。AI 基础设施、从 0 到 1 的产品，以及城市生态。",
-    "cta.body":"2026 全球巡回的参会、演讲与合作申请现已开放。先选城市 — 再进房间。",
-    "ft.sub":"AGI Villa 的旗舰世界巡回。创新者与世界面对面相遇。",
-    "ft.connect":"联系","ft.copy":"© 2026 GO SUMMIT · AGI Villa. 保留所有权利。"
-  }
-};
-
-function setLang(lang){
-  const dict = I18N[lang] || I18N.en;
-  document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
-  document.querySelectorAll("[data-i18n]").forEach(el=>{
-    const key = el.getAttribute("data-i18n");
-    if(dict[key] != null) el.innerHTML = dict[key];
-  });
-  document.querySelectorAll(".lang button").forEach(b=>{
-    b.toggleAttribute("aria-current", b.dataset.lang === lang);
-  });
-}
-document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>setLang(b.dataset.lang)));
-
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
     if(e.isIntersecting){ e.target.classList.add("visible"); io.unobserve(e.target); }
